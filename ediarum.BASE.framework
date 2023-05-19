@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="22.0" xml:space="preserve">
+<serialized xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
 			<documentTypeDescriptor-array>
 				<documentTypeDescriptor>
+					<field name="webResources">
+						<null/>
+					</field>
 					<field name="extensionPatch">
 						<null/>
 					</field>
@@ -797,6 +800,114 @@ or ancestor-or-self::quote</String>
 									</action>
 									<action>
 										<field name="id">
+											<String>pb.seite</String>
+										</field>
+										<field name="name">
+											<String>Seitenwechsel</String>
+										</field>
+										<field name="description">
+											<String>Seitenwechsel</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("pb")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;pb xmlns="http://www.tei-c.org/ns/1.0" n="${ask('Seitenzahl')}" /></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>wortbedeutung</String>
+										</field>
+										<field name="name">
+											<String>Wortbedeutung</String>
+										</field>
+										<field name="description">
+											<String>Wortbedeutung mit Label</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String>B</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 I</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::list[@xml:id='terms']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;item xmlns="http://www.tei-c.org/ns/1.0" >&lt;label/>Erklärung&lt;/item></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::list[@xml:id='terms']</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
 											<String>date-when</String>
 										</field>
 										<field name="name">
@@ -1006,17 +1117,70 @@ hand</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text
-or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note
-or ancestor-or-self::note[parent::notesStmt]
-or ancestor-or-self::p[parent::physDesc]</String>
+														<String>ancestor-or-self::persName</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>key</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{./span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{./@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::persName[1]</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text
+or ancestor-or-self::abstract 
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]
+or ancestor-or-self::p[parent::physDesc]
+or ancestor-or-self::item</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -1024,7 +1188,7 @@ or ancestor-or-self::p[parent::physDesc]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -1084,16 +1248,69 @@ or ancestor-or-self::p[parent::physDesc]</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text
-or ancestor-or-self::abstract 
-or ancestor-or-self::correspDesc/note
-or ancestor-or-self::note[parent::notesStmt]</String>
+														<String>ancestor-or-self::placeName</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>key</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{./span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{./@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>ancestor-or-self::placeName[1]</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text
+or ancestor-or-self::abstract 
+or ancestor-or-self::correspDesc/note
+or ancestor-or-self::note[parent::notesStmt]
+or ancestor-or-self::item</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -1101,7 +1318,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -1132,6 +1349,207 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 										</field>
 									</action>
 									<action>
+										<field name="id">
+											<String>xml_lang</String>
+										</field>
+										<field name="name">
+											<String>Sprache angeben</String>
+										</field>
+										<field name="description">
+											<String>Sprache für Bereich angeben</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:current-selected-element()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${framework}/resources/AEET-Sprachen.xml</String>
+															</entry>
+															<entry>
+																<String>attribute name</String>
+																<String>xml:lang</String>
+															</entry>
+															<entry>
+																<String>attribute value</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{./span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{./@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+															<entry>
+																<String>xpath to element of the attribute</String>
+																<String>oxy:current-selected-element()</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text
+and not(oxy:current-selected-element())</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${framework}/resources/AEET-Sprachen.xml</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;span xmlns='http://www.tei-c.org/ns/1.0' xml:lang='$ITEMS'>&lt;/span></String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{./span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>xml_lang_span</String>
+										</field>
+										<field name="name">
+											<String>Sprache angeben (immer Span)</String>
+										</field>
+										<field name="description">
+											<String>Sprache für Bereich angeben (immer Span)</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::text
+and not(oxy:current-selected-element())</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${framework}/resources/AEET-Sprachen.xml</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>&lt;span xmlns='http://www.tei-c.org/ns/1.0' xml:lang='$ITEMS'>&lt;/span></String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{./span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>$XPATH{@xml:id}</String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>									<action>
 										<field name="id">
 											<String>supplied</String>
 										</field>
@@ -1740,7 +2158,7 @@ or ancestor-or-self::notesStmt/note</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl}</String>
+																<String>${framework}/resources/AEET-Bibliographie.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -1748,7 +2166,7 @@ or ancestor-or-self::notesStmt/note</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -2171,7 +2589,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -2179,11 +2597,11 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 															</entry>
 															<entry>
 																<String>expression</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>first element</String>
-																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="persons" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
+																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="persons" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{./span}&lt;/term>&lt;/index></String>
 															</entry>
 															<entry>
 																<String>id</String>
@@ -2295,7 +2713,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -2303,11 +2721,11 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 															</entry>
 															<entry>
 																<String>expression</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>first element</String>
-																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="places" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
+																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="places" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{./span}&lt;/term>&lt;/index></String>
 															</entry>
 															<entry>
 																<String>id</String>
@@ -2369,7 +2787,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl}</String>
+																<String>${framework}/resources/AEET-Bibliographie.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -2377,11 +2795,11 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 															</entry>
 															<entry>
 																<String>expression</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>first element</String>
-																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="bibl" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{/span}&lt;/term>&lt;/index></String>
+																<String>&lt;index xmlns="http://www.tei-c.org/ns/1.0" spanTo="#$ID" indexName="bibl" corresp="$XPATH{@xml:id}">&lt;term>$XPATH{./span}&lt;/term>&lt;/index></String>
 															</entry>
 															<entry>
 																<String>id</String>
@@ -2523,13 +2941,65 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>./ancestor-or-self::foreign</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>./ancestor-or-self::foreign[1]</String>
+														</entry>
+															<entry>
+																	<String>name</String>
+																	<String>xml:lang</String>
+															</entry>
+															<entry>
+																<String>fragment</String>
+																<!--String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Wählen Sie die Sprache aus', combobox, (
+																	'Lat':'Latein';
+																	'deu':'Deutsch';
+																	'fra':'Französisch';
+																	'ita':'Italienisch';
+																	'eng':'Englisch';
+																	'rus':'Russisch';
+																	'spa':'Spanisch';
+																	'grc':'Altgriechisch';
+																	'heb':'Hebräisch';
+																	))}">&lt;/foreign></String-->
+<String>${ask('Wählen Sie die Sprache aus', combobox, (${xpath_eval(
+	for $lang in //langUsage/language
+	return "'" || $lang/@ident || "':'" || $lang/text() || "';"
+	)}), '${xpath_eval(./ancestor-or-self::foreign[1]/@xml:lang)}')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>oxy:allows-child-element("foreign")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Wählen Sie die Sprache aus', combobox, ('grc':'Griechisch'; 'Lat':'Latein'; 'heb':'Hebräisch';'deu':'Deutsch';'fra':'Französisch'; 'eng':'Englisch';'rus':'Russisch';'spa':'Spanisch'; ))}">&lt;/foreign></String>
+																<!--String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Wählen Sie die Sprache aus', combobox, (
+																	'Lat':'Latein';
+																	'deu':'Deutsch';
+																	'fra':'Französisch';
+																	'ita':'Italienisch';
+																	'eng':'Englisch';
+																	'rus':'Russisch';
+																	'spa':'Spanisch';
+																	'grc':'Altgriechisch';
+																	'heb':'Hebräisch';
+																	))}">&lt;/foreign></String-->
+<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Wählen Sie die Sprache aus', combobox, (${xpath_eval(
+	for $lang in //langUsage/language
+	return "'" || $lang/@ident || "':'" || $lang/text() || "';"
+	)}))}">&lt;/foreign></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -4849,7 +5319,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -4865,7 +5335,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -4873,7 +5343,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/placeName></String>
+																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/placeName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -4901,7 +5371,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -4917,7 +5387,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -4925,7 +5395,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/placeName></String>
+																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/placeName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -4983,7 +5453,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -4995,7 +5465,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5003,7 +5473,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>$XPATH{/@xml:id}</String>
+																<String>$XPATH{./@xml:id}</String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -5035,7 +5505,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5047,7 +5517,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5055,7 +5525,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName></String>
+																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/persName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -5087,7 +5557,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5099,7 +5569,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5107,7 +5577,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;correspAction xmlns='http://www.tei-c.org/ns/1.0'>&lt;persName   key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName>&lt;/correspAction></String>
+																<String>&lt;correspAction xmlns='http://www.tei-c.org/ns/1.0'>&lt;persName   key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/persName>&lt;/correspAction></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -5169,7 +5639,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5185,7 +5655,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5193,7 +5663,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName></String>
+																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/persName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -5225,7 +5695,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5237,7 +5707,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5245,7 +5715,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName></String>
+																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/persName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -5277,7 +5747,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5293,7 +5763,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5301,7 +5771,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName></String>
+																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/persName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -5331,6 +5801,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<Boolean>true</Boolean>
 										</field>
 									</action>
+
 									<action>
 										<field name="id">
 											<String>correspContext_ref[ID]</String>
@@ -5363,7 +5834,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_letters}</String>
+																<String>${framework}/resources/AEET-Briefe.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5381,7 +5852,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5417,7 +5888,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_letters}</String>
+																<String>${framework}/resources/AEET-Briefe.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5435,7 +5906,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5471,7 +5942,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_letters}</String>
+																<String>${framework}/resources/AEET-Briefe.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5487,7 +5958,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5553,7 +6024,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5569,7 +6040,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5577,7 +6048,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName></String>
+																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/orgName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -5605,7 +6076,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -5617,7 +6088,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -5625,7 +6096,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName></String>
+																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/orgName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -5653,13 +6124,13 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 									</action>
 									<action>
 										<field name="id">
-											<String>symbol_enDash</String>
+											<String>symbol_double_hyphen</String>
 										</field>
 										<field name="name">
-											<String>Halbgeviertstrich</String>
+											<String>[doppelter Trenstrich ⹀]</String>
 										</field>
 										<field name="description">
-											<String></String>
+											<String>doppelter Trenstrich [⹀]</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -5683,7 +6154,145 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&amp;#8211;</String>
+																<String>⹀</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_double_hyphen_short</String>
+										</field>
+										<field name="name">
+											<String>[⹀]</String>
+										</field>
+										<field name="description">
+											<String>doppelter Trenstrich [⹀]</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>⹀</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_enDash</String>
+										</field>
+										<field name="name">
+											<String>[Gedanken-, Bis-Strich –]</String>
+										</field>
+										<field name="description">
+											<String>Halbgeviertstrich: Gedankenstrich und Bis-Strich</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>–</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_enDash_short</String>
+										</field>
+										<field name="name">
+											<String>[–]</String>
+										</field>
+										<field name="description">
+											<String>Halbgeviertstrich: Gedankenstrich und Bis-Strich</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>–</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -5702,10 +6311,10 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<String>symbol_emDash</String>
 										</field>
 										<field name="name">
-											<String>Geviertstrich</String>
+											<String>[langer —]</String>
 										</field>
 										<field name="description">
-											<String></String>
+											<String>Geviertstrich: für sehr lange Striche, Spanisch und (US-)Englisch</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -5729,7 +6338,53 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&amp;#8212;</String>
+																<String>—</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_emDash</String>
+										</field>
+										<field name="name">
+											<String>[—]</String>
+										</field>
+										<field name="description">
+											<String>Geviertstrich: für sehr lange Striche, Spanisch und (US-)Englisch</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>—</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -6546,7 +7201,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -6562,7 +7217,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -6570,7 +7225,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/placeName></String>
+																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/placeName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -6598,7 +7253,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -6614,7 +7269,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -6622,7 +7277,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/placeName></String>
+																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/placeName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -7358,7 +8013,54 @@ remove_attr</String>
 											<String>symbol_macron</String>
 										</field>
 										<field name="name">
-											<String>Kürzungsstrich</String>
+											<String>Nasal/Kürzungsstrich (‾)</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<!--field name="xpathCondition">
+														<String>ancestor-or-self::text</String>
+													</field-->
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>̅</String>
+																<!--String>&amp;#x0305;</String-->
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+																		<action>
+										<field name="id">
+											<String>symbol_macron_short</String>
+										</field>
+										<field name="name">
+											<String>[‾]</String>
 										</field>
 										<field name="description">
 											<String></String>
@@ -7385,7 +8087,8 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&amp;#x0305;</String>
+																<String>̅</String>
+																<!--String>&amp;#x0305;</String-->
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7651,7 +8354,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -7663,7 +8366,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -7699,7 +8402,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -7711,7 +8414,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -7747,7 +8450,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_item}</String>
+																<String>${framework}/resources/AEET-Termini.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -7759,7 +8462,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -7795,7 +8498,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
+																<String>${framework}/resources/${ediarum_index_bibl_zotero}</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -7807,7 +8510,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/tei:span}</String>
+																<String>$XPATH{./tei:span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -7843,7 +8546,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl}</String>
+																<String>${framework}/resources/AEET-Bibliographie.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -7855,7 +8558,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -7891,7 +8594,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -7903,7 +8606,7 @@ remove_attr</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8270,7 +8973,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8282,7 +8985,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8290,16 +8993,16 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName></String>
+																<String>&lt;persName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/persName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
-																<String>false</String>
+																<String>true</String>
 															</entry>
-															<entry>
+															<!--entry>
 																<String>namespaces</String>
 																<String>tei:http://www.tei-c.org/ns/1.0</String>
-															</entry>
+															</entry-->
 															<entry>
 																<String>node</String>
 																<String>//li</String>
@@ -8318,7 +9021,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8330,7 +9033,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8338,7 +9041,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;persName key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName>&lt;/creation></String>
+																<String>&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;persName key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/persName>&lt;/creation></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -8358,6 +9061,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
 													</field>
 												</actionMode>
+												<!-- nochmal Orte ??? -->
 												<actionMode>
 													<field name="xpathCondition">
 														<String>not(//profileDesc) and not(//correspDesc)</String>
@@ -8366,7 +9070,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8382,7 +9086,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8390,7 +9094,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0'>&lt;creation>&lt;persName key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/persName>&lt;/creation>&lt;/profileDesc></String>
+																<String>&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0'>&lt;creation>&lt;persName key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/persName>&lt;/creation>&lt;/profileDesc></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -8448,7 +9152,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8460,7 +9164,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8468,7 +9172,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/placeName></String>
+																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/placeName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -8496,7 +9200,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8512,7 +9216,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8520,7 +9224,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/placeName></String>
+																<String>&lt;placeName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/placeName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -8548,7 +9252,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8560,7 +9264,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8568,7 +9272,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;creation xmlns='http://www.tei-c.org/ns/1.0' >&lt;placeName  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/placeName>&lt;/creation></String>
+																<String>&lt;creation xmlns='http://www.tei-c.org/ns/1.0' >&lt;placeName  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/placeName>&lt;/creation></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -8596,7 +9300,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_place}</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8612,7 +9316,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8620,7 +9324,237 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0' >&lt;creation>&lt;placeName  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/placeName>&lt;/creation>&lt;/profileDesc></String>
+																<String>&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0' >&lt;creation>&lt;placeName  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/placeName>&lt;/creation>&lt;/profileDesc></String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>profileDesc_langUsage</String>
+										</field>
+										<field name="name">
+											<String>Sprache einfügen</String>
+										</field>
+										<field name="description">
+											<String>Fügt eine Sprache ein, die im Dokument verwendet wird.</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc/langUsage[not(./language)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${framework}/resources/AEET-Sprachen.xml</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc/langUsage</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{./span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>&lt;language xmlns='http://www.tei-c.org/ns/1.0'  ident='$XPATH{@xml:id}'>$XPATH{./span/node()}&lt;/language></String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc/langUsage[./language]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${framework}/resources/AEET-Sprachen.xml</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc/langUsage/language[position()=last()]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{./span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>&lt;language xmlns='http://www.tei-c.org/ns/1.0'  ident='$XPATH{@xml:id}'>$XPATH{./span/node()}&lt;/language></String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>//profileDesc and not(//langUsage)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${framework}/resources/AEET-Sprachen.xml</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//profileDesc</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{./span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>&lt;langUsage xmlns='http://www.tei-c.org/ns/1.0' >&lt;language xmlns='http://www.tei-c.org/ns/1.0'  ident='$XPATH{@xml:id}'>$XPATH{./span/node()}&lt;/language>&lt;/langUsage></String>
+															</entry>
+															<entry>
+																<String>multiple selection</String>
+																<String>false</String>
+															</entry>
+															<entry>
+																<String>namespaces</String>
+																<String>tei:http://www.tei-c.org/ns/1.0</String>
+															</entry>
+															<entry>
+																<String>node</String>
+																<String>//li</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.RegisterInsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>not(//profileDesc) and not(//correspDesc)</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>URL</String>
+																<String>${framework}/resources/AEET-Orte.xml</String>
+															</entry>
+															<entry>
+																<String>element</String>
+																<String>$ITEMS</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//fileDesc</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>item rendering</String>
+																<String>$XPATH{./span}</String>
+															</entry>
+															<entry>
+																<String>item separator</String>
+																<String> </String>
+															</entry>
+															<entry>
+																<String>item variable</String>
+																<String>&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0' >&lt;creation>&lt;placeName  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/placeName>&lt;/creation>&lt;/profileDesc></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -8681,7 +9615,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_comments}</String>
+																<String>${framework}/resources/${ediarum_index_comments}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8689,7 +9623,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8917,7 +9851,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_item}</String>
+																<String>${framework}/resources/AEET-Termini.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8925,7 +9859,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -8991,7 +9925,7 @@ or ancestor-or-self::p[parent::physDesc]</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -8999,7 +9933,7 @@ or ancestor-or-self::p[parent::physDesc]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -9174,6 +10108,41 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 									</action>
 									<action>
 										<field name="id">
+											<String>resetRegisterCache</String>
+										</field>
+										<field name="name">
+											<String>Cache für Register zurücksetzen</String>
+										</field>
+										<field name="description">
+											<String>Cache für Register zurücksetzen</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="operationID">
+														<String>org.bbaw.telota.ediarum.ResetRegisterCacheOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
 											<String>correspContext_ref[text+URL]</String>
 										</field>
 										<field name="name">
@@ -9280,6 +10249,144 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 									</action>
 									<action>
 										<field name="id">
+											<String>symbol_long_s</String>
+										</field>
+										<field name="name">
+											<String>[ſ]</String>
+										</field>
+										<field name="description">
+											<String>langes s</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 M2 S</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>ſ</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_pfennig_short</String>
+										</field>
+										<field name="name">
+											<String>[₰]</String>
+										</field>
+										<field name="description">
+											<String>Pfennig (₰)</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 M2 P</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>₰</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_pfennig</String>
+										</field>
+										<field name="name">
+											<String>[Pfennig ₰]</String>
+										</field>
+										<field name="description">
+											<String>Pfennig (₰)</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 M2 S</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>₰</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
 											<String>symbol_letters</String>
 										</field>
 										<field name="name">
@@ -9298,7 +10405,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+                                                                                        <null/>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -9310,7 +10417,65 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('&amp;#x00E3;':'ã';'&amp;#0230;':'æ';'&amp;#0198;':'Æ';'&amp;#x00E7;':'ç';'&amp;#x00C7;':'Ç';'&amp;#x229;':'ȩ';'&amp;#x00EB;':'ë';'&amp;#x00EF;':'ï';'&amp;#x0142;':'ł';'&amp;#x0141;':'Ł';'&amp;#x144;':'ń';'&amp;#x00F1;':'ñ';'&amp;#x00F8;':'ø';'&amp;#0339;':'œ';'&amp;#0338;':'Œ';'&amp;#x0161;':'š';'&amp;#x0160;':'Š';), '&amp;#x00E3;')}</String>
+																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('ſ': 'ſ'; 'ã':'ã';'æ':'æ';'Æ':'Æ';'ç':'ç';'Ç':'Ç';'ȩ':'ȩ';'ë':'ë';'ï':'ï';'ł':'ł';'Ł':'Ł';'ń':'ń';'ñ':'ñ';'ø':'ø';'œ':'œ';'Œ':'Œ';'š':'š';'Š':'Š';), 'ſ')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>symbol_quotes</String>
+										</field>
+										<field name="name">
+											<String>Anführungszeichen</String>
+										</field>
+										<field name="description">
+											<String>Anführungszeichen</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift DEAD_ACUTE</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+                                                                                                                                <String>${ask('Bitte wählen Sie ein Zeichen', combobox, (
+                                                                                                                                  '„':'„';
+                                                                                                                                  '“':'“';
+                                                                                                                                  '”':'”';
+                                                                                                                                  '‚':'‚';
+                                                                                                                                  '‘':'‘';
+                                                                                                                                  '’':'‘';
+                                                                                                                                  '«':'»';
+                                                                                                                                  '»':'»';
+                                                                                                                                  '‹':'‹';
+                                                                                                                                  '›':'›';
+                                                                                                                                ),
+                                                                                                                                  '„')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -9329,10 +10494,10 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String>symbol_units</String>
 										</field>
 										<field name="name">
-											<String>Einheitenzeichen</String>
+											<String>Einheiten, Währungen,…</String>
 										</field>
 										<field name="description">
-											<String>Währungen, Gewichte etc.</String>
+											<String>Einheiten für Währungen, Gewichte etc.</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -9356,7 +10521,14 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>${ask('Bitte wählen Sie ein Zeichen', combobox, ('&amp;#x00A3;':'£';'&amp;#x2032;':'′';'&amp;#x2033;':'″';'&amp;#x2034;':'‴';), '&amp;#x00A3;')}</String>
+                                                                                                                                <String>${ask('Bitte wählen Sie ein Zeichen', combobox, (
+                                                                                                                                    '₰': 'Pfennig (₰)';
+                                                                                                                                    '℔': 'Pfund (℔');
+                                                                                                                                    '£': '£';
+                                                                                                                                    '′': 'Mathe ‚Strich‘ (′)'
+                                                                                                                                    ;'″':'Mathe ‚Zweistrich‘ (″)';
+                                                                                                                                    '‴': 'Mathe ‚Dreistrich‘ (‴)';
+                                                                                                                                  ), '₰')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -9540,7 +10712,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
+																<String>${framework}/resources/${ediarum_index_bibl_zotero}</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -9552,7 +10724,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/tei:span}</String>
+																<String>$XPATH{./tei:span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -9591,7 +10763,7 @@ or ancestor-or-self::notesStmt/note</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_bibl_zotero}</String>
+																<String>${framework}/resources/${ediarum_index_bibl_zotero}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -9599,7 +10771,7 @@ or ancestor-or-self::notesStmt/note</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/tei:span}</String>
+																<String>$XPATH{./tei:span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -10202,7 +11374,7 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -10218,7 +11390,7 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -10226,7 +11398,7 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName></String>
+																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/orgName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -10254,7 +11426,7 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -10266,7 +11438,7 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -10274,7 +11446,7 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName></String>
+																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/orgName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -10424,7 +11596,7 @@ and not(//witness[@select])</String>
 											<String>symbol_ellipsis</String>
 										</field>
 										<field name="name">
-											<String>Auslassungspunkte</String>
+											<String>[…]</String>
 										</field>
 										<field name="description">
 											<String>Auslassungspunkte</String>
@@ -10497,7 +11669,7 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('&amp;#x2609;':'☉';'&amp;#x263E;':'☾';'&amp;#x263D;':'☽';'&amp;#x25A1;':'□';), '&amp;#x2609;')}</String>
+																<String>${ask('Wählen Sie ein Zeichen aus', combobox, ('☉':'☉';'☾':'☾';'☽':'☽';'□':'□';), '☉')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -10641,7 +11813,7 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -10653,7 +11825,7 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -10693,7 +11865,7 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -10705,7 +11877,7 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -10745,7 +11917,7 @@ and not(//witness[@select])</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -10757,7 +11929,7 @@ and not(//witness[@select])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -11268,7 +12440,7 @@ gap_3</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_keyword}</String>
+																<String>${framework}/resources/${ediarum_index_keyword}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -11284,7 +12456,7 @@ gap_3</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -11292,7 +12464,7 @@ gap_3</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;term xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/term></String>
+																<String>&lt;term xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/term></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -11324,7 +12496,7 @@ gap_3</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_keyword}</String>
+																<String>${framework}/resources/${ediarum_index_keyword}</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -11340,7 +12512,7 @@ gap_3</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -11348,7 +12520,7 @@ gap_3</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;textClass xmlns='http://www.tei-c.org/ns/1.0'>&lt;keywords>&lt;term  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/term>&lt;/keywords>&lt;/textClass></String>
+																<String>&lt;textClass xmlns='http://www.tei-c.org/ns/1.0'>&lt;keywords>&lt;term  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/term>&lt;/keywords>&lt;/textClass></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -12208,7 +13380,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -12220,7 +13392,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -12228,7 +13400,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName></String>
+																<String>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/orgName></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -12256,7 +13428,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -12276,7 +13448,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;orgName  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName>&lt;/creation>
+																<String>&lt;creation xmlns='http://www.tei-c.org/ns/1.0'>&lt;orgName  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/orgName>&lt;/creation>
 </String>
 															</entry>
 															<entry>
@@ -12305,7 +13477,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_org}</String>
+																<String>${framework}/resources/AEET-Organisationen.xml</String>
 															</entry>
 															<entry>
 																<String>element</String>
@@ -12321,7 +13493,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -12329,7 +13501,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 															</entry>
 															<entry>
 																<String>item variable</String>
-																<String>&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0'>&lt;creation>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{/span}&lt;/orgName>&lt;/creation>&lt;/profileDesc></String>
+																<String>&lt;profileDesc xmlns='http://www.tei-c.org/ns/1.0'>&lt;creation>&lt;orgName xmlns='http://www.tei-c.org/ns/1.0'  key='$XPATH{@xml:id}'>$XPATH{./span}&lt;/orgName>&lt;/creation>&lt;/profileDesc></String>
 															</entry>
 															<entry>
 																<String>multiple selection</String>
@@ -12406,7 +13578,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 											<String>revisionDesc[1]</String>
 										</field>
 										<field name="name">
-											<String>Bearbeitungshistorie hinzufügen</String>
+											<String>Bearbeitungsschritt hinzufügen</String>
 										</field>
 										<field name="description">
 											<String>Dokumentiert eine neue Bearbeitung des Dokuments</String>
@@ -12433,7 +13605,7 @@ or ancestor-or-self::list[@rendition='#et']</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd)}" who="${ask('Kürzel Bearbeiter*in', editable_combobox, ('${author.name}':'${author.name}';), '${author.name}')}">&lt;/change></String>
+																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd)}" who="${ask('Name Bearbeiter*in', editable_combobox, ('${author.name}':'${author.name}';), '${author.name}')}">&lt;/change></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -13542,7 +14714,7 @@ ancestor-or-self::cell[not(@rendition)]</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{/title}</String>
+																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{./title}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -13918,7 +15090,7 @@ not(//listWit[@n='textWitnesses']/listWit[@xml:id])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{/title}</String>
+																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{./title}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -13966,7 +15138,7 @@ not(//listWit[@n='textWitnesses']/listWit[@xml:id])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{/title}</String>
+																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{./title}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -14044,7 +15216,7 @@ not(//listWit[@n='textWitnesses']/listWit[@xml:id])</String>
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{/title}</String>
+																<String>$XPATH{#normalize-space(tei:idno[@type='siglum'])}: $XPATH{./title}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -14456,7 +15628,7 @@ writingSession_writer_1
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -14468,7 +15640,7 @@ writingSession_writer_1
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -14508,7 +15680,7 @@ writingSession_writer_1
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -14520,7 +15692,7 @@ writingSession_writer_1
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -14560,7 +15732,7 @@ writingSession_writer_1
 														<serializableOrderedMap>
 															<entry>
 																<String>URL</String>
-																<String>${ediarum_project_domain}${ediarum_projects_directory}${ediarum_project_name}${ediarum_index_person}</String>
+																<String>${framework}/resources/AEET-Personen.xml</String>
 															</entry>
 															<entry>
 																<String>attribute name</String>
@@ -14572,7 +15744,7 @@ writingSession_writer_1
 															</entry>
 															<entry>
 																<String>item rendering</String>
-																<String>$XPATH{/span}</String>
+																<String>$XPATH{./span}</String>
 															</entry>
 															<entry>
 																<String>item separator</String>
@@ -14839,9 +16011,14 @@ writingSession_writer_1
 																<String>figure</String>
 															</field>
 														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>pb.seite</String>
+															</field>
+														</menuItem>
 														<menu>
 															<field name="label">
-																<String>Seitenumbruch</String>
+																<String>Seitenumbruch (differenziert) </String>
 															</field>
 															<field name="accessKey">
 																<String></String>
@@ -15113,6 +16290,16 @@ writingSession_writer_1
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
+																<String>xml_lang</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>xml_lang_span</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
 																<String>bibl</String>
 															</field>
 														</menuItem>
@@ -15278,6 +16465,21 @@ writingSession_writer_1
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>resetRegisterCache</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>wortbedeutung</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>profileDesc_langUsage</String>
+															</field>
+														</menuItem>
 														<menuItem>
 															<field name="actionID">
 																<String>msDesc_idno[uri]</String>
@@ -16170,6 +17372,16 @@ writingSession_writer_1
 														</toolbarItem>
 														<toolbarItem>
 															<field name="actionID">
+																<String>xml_lang</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>xml_lang_span</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
 																<String>bibl</String>
 															</field>
 														</toolbarItem>
@@ -16211,6 +17423,131 @@ writingSession_writer_1
 											<toolbarEntry-array>
 												<toolbar>
 													<field name="id">
+														<String>Symbole</String>
+													</field>
+													<field name="type">
+														<Integer>3</Integer>
+													</field>
+													<field name="largeIconPath">
+														<String></String>
+													</field>
+													<field name="smallIconPath">
+														<String></String>
+													</field>
+													<field name="toolbarEntriesDescriptorList">
+														<toolbarEntry-array>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_long_s</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_pfennig</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_macron</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_double_hyphen</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_enDash</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_emDash</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_ellipsis</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_letters</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_quotes</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_fracture</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_units</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>symbol_symbols</String>
+																</field>
+															</toolbarItem>
+														</toolbarEntry-array>
+													</field>
+												</toolbar>
+												<toolbarItem>
+													<field name="actionID">
+														<String>symbol_long_s</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>symbol_pfennig_short</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>symbol_macron_short</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>symbol_double_hyphen_short</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>symbol_enDash_short</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>symbol_emDash_short</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>symbol_ellipsis</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>persName</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>placeName</String>
+													</field>
+												</toolbarItem>
+												
+												<toolbar>
+													<field name="id">
 														<String>Metadaten</String>
 													</field>
 													<field name="type">
@@ -16224,6 +17561,11 @@ writingSession_writer_1
 													</field>
 													<field name="toolbarEntriesDescriptorList">
 														<toolbarEntry-array>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>resetRegisterCache</String>
+																</field>
+															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>msDesc_idno[uri]</String>
@@ -16274,6 +17616,11 @@ writingSession_writer_1
 															<toolbarItem>
 																<field name="actionID">
 																	<String>profileDesc_creation_placeName</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>profileDesc_langUsage</String>
 																</field>
 															</toolbarItem>
 															<toolbarItem>
@@ -16424,7 +17771,7 @@ writingSession_writer_1
 														</toolbarEntry-array>
 													</field>
 												</toolbar>
-											</toolbarEntry-array>
+											<!--/toolbarEntry-array>
 										</field>
 									</toolbar>
 									<toolbar>
@@ -16441,72 +17788,13 @@ writingSession_writer_1
 											<null/>
 										</field>
 										<field name="toolbarEntriesDescriptorList">
-											<toolbarEntry-array>
-												<toolbar>
-													<field name="id">
-														<String>Symbole</String>
-													</field>
-													<field name="type">
-														<Integer>3</Integer>
-													</field>
-													<field name="largeIconPath">
-														<String></String>
-													</field>
-													<field name="smallIconPath">
-														<String></String>
-													</field>
-													<field name="toolbarEntriesDescriptorList">
-														<toolbarEntry-array>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_letters</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_fracture</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_units</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_symbols</String>
-																</field>
-															</toolbarItem>
-															<toolbarSeparator/>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_macron</String>
-																</field>
-															</toolbarItem>
-															<toolbarSeparator/>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_enDash</String>
-																</field>
-															</toolbarItem>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_emDash</String>
-																</field>
-															</toolbarItem>
-															<toolbarSeparator/>
-															<toolbarItem>
-																<field name="actionID">
-																	<String>symbol_ellipsis</String>
-																</field>
-															</toolbarItem>
-														</toolbarEntry-array>
-													</field>
-												</toolbar>
+											<toolbarEntry-array-->
+
+
 											</toolbarEntry-array>
 										</field>
 									</toolbar>
-									<toolbar>
+									<!--toolbar>
 										<field name="id">
 											<String>Website</String>
 										</field>
@@ -16528,7 +17816,7 @@ writingSession_writer_1
 												</toolbarItem>
 											</toolbarEntry-array>
 										</field>
-									</toolbar>
+									</toolbar-->
 								</toolbar-array>
 							</field>
 							<field name="contextualItems">

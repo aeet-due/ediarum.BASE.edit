@@ -20,31 +20,191 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 @namespace xml "http://www.w3.org/XML/1998/namespace";
 @namespace telota "http://www.telota.de";
 
+
+
+@font-face{
+    font-family: "Fraktur";
+    src:url("../fonts/UnifrakturMaguntia.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "XITS";
+    src:url("../fonts/XITS-BoldItalic.otf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+@font-face{
+    font-family: "XITS";
+    src:url("../fonts/XITS-Bold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+
 @font-face{
     font-family: "BBAWfont";
-    src:url("../fonts/linlibertine_r.ttf");
+    src:url("../fonts/XITS-Italic.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+@font-face{
+    font-family: "XITS";
+    src:url("../fonts/XITS-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "BBAWfont";
+    src:url("../fonts/NotoSans-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+@font-face{
+    font-family: "BBAWfont";
+    src:url("../fonts/NotoSans-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "BBAWfont";
+    src:url("../fonts/NotoSans-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+@font-face{
+    font-family: "BBAWfont";
+    src:url("../fonts/NotoSans-Regular.ttf");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face{
     font-family: "BBAWfont-italic";
-    src:url("../fonts/linlibertine_ri.ttf");
+    src:url("../fonts/NotoSans-Italic.ttf");
     font-weight: normal;
+    size-adjust: 90%;
 }
 
 @font-face{
     font-family: "Biolinum";
-    src: url("../fonts/linbiolinum_r.ttf");
+    src: url("../fonts/NotoSerif-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+@font-face{
+    font-family: "Biolinum";
+    src: url("../fonts/NotoSerif-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "Biolinum";
+    src: url("../fonts/NotoSerif-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: "Biolinum";
+    src: url("../fonts/NotoSerif-Italic.ttf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+@font-face{
+    font-family: "Mono";
+    src: url("../fonts/NotoSansMono-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "Mono";
+    src: url("../fonts/NotoSansMono-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*
+
+@font-face{
+    font-family: "BBAWfont";
+    src:url("../fonts/LibertinusSerif-BoldItalic.otf");
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+@font-face{
+    font-family: "BBAWfont";
+    src:url("../fonts/LibertinusSerif-Bold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "BBAWfont";
+    src:url("../fonts/LibertinusSerif-Italic.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+@font-face{
+    font-family: "BBAWfont";
+    src:url("../fonts/LibertinusSerif-Regular.otf");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face{
-    font-family: "Biolinum-italic";
-    src: url("../fonts/linbiolinum_ri.ttf");
+    font-family: "BBAWfont-italic";
+    src:url("../fonts/LibertinusSerif-Italic.otf");
     font-weight: normal;
 }
+
+
+@font-face{
+    font-family: "Biolinum";
+    src: url("../fonts/LibertinusSans-Bold.otf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "Biolinum";
+    src: url("../fonts/LibertinusSans-Italic.otf");
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+@font-face{
+    font-family: "Biolinum";
+    src: url("../fonts/LibertinusSans-Regular.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+*/
 
 TEI {
     padding: 1em;
@@ -63,7 +223,8 @@ TEI[telota|copy] {
 teiHeader {
     padding: 0 0 1em 0;
     border-bottom: 1px #000000 solid;
-    font-family: "BBAWfont-italic";
+    font-family: "BBAWfont";
+    font-style: italic;
 
 }
 
@@ -75,7 +236,8 @@ titleStmt {
 titleStmt title {
     -oxy-placeholder-content: "Titel";
     -oxy-display-tags: none;
-    font-size: 1.5em;
+    font-weight: bold;
+    font-size: 1.75em;
 }
 
 titleStmt title idno {
@@ -116,6 +278,15 @@ titleStmt persName forename {
     -oxy-display-tags: none;
 }
 
+persName addName {
+    -oxy-display-tags: none;
+}
+
+persName addName:after {
+    content: " = ";
+    -oxy-display-tags: none;
+}
+
 titleStmt surname:after {
     content:",";
 }
@@ -139,7 +310,18 @@ sourceDesc:before {
 
 sourceDesc msDesc {
     display: block;
-    content: "Handschrift: ";
+    
+}
+
+sourceDesc msIdentifier:before {
+    content: "Signatur: ";
+    font-style: normal;
+    font-weight: bold;
+}
+sourceDesc msIdentifier,
+sourceDesc msContents {
+    display: block;
+    margin-bottom: 1ex;
 }
 
 sourceDesc msDesc * {
@@ -166,6 +348,10 @@ sourceDesc msDesc[rend="print-as-print"] {
 
 sourceDesc msDesc[rend="notExtant"] {
     content: "Erschlossen";
+}
+
+sourceDesc msDesc[rend="manuscript"] {
+    content: "Handschrift: ";
 }
 
 sourceDesc msDesc[rend="print"] {
@@ -341,7 +527,9 @@ profileDesc correspAction orgName {
 }
 
 profileDesc creation date:before {
-    content: "Datum: "
+    content: "Datum: ";
+    font-weight: bold;
+    font-style: normal;
 }
 
 correspDesc date[when],
@@ -393,6 +581,8 @@ profileDesc abstract:before {
     display: block;
     content: "Regest: ";
     font-weight: bold;
+    font-style: normal;
+    font-family: BBAWfont;
 }
 
 profileDesc abstract p {
@@ -608,13 +798,40 @@ text lg lg l {
     display: block;
 }
 
-text list,
-text list item {
+list,
+list item {
+    margin-left: 1ex;
     display: block;
     -oxy-display-tags: none;
+    list-style-type:lower-alpha;
+}
+list item{
+    text-indent: -1em;
 }
 
-text list {
+
+list item:not([n])::before {
+    display: inline-block;
+    content: "•";
+    width: 1em;
+    font-weight: bold;
+}
+
+list item[n]::before {
+    content: attr(n) ") ";
+}
+
+list label {
+    display: inline-block;
+    width: 5em;
+    margin-right: 1ex;
+}
+
+list label + item {
+    display: inline-block;
+}
+
+list {
     margin: 1em 0 0 1em;    
 }
 
@@ -639,18 +856,21 @@ text cb {
 text pb[n]:after,
 text cb[n]:after {
     content: "(" attr(n) ")";
-    font-family: "BBAWfont-italic";
+    font-family: "BBAWfont";
+    font-style: italic;
     color: gray;
 }
 
 text pb[facs]:after {
     content: "(folio)";
-    font-family: "BBAWfont-italic";
+    font-family: "BBAWfont";
+    font-style: italic;
 }
 
 text pb[n][facs]:after {
     content: "(" attr(n) ")";
-    font-family: "BBAWfont-italic";
+    font-family: "BBAWfont";
+    font-style: italic;
 }
 
 text pb[facs]:after {
@@ -787,48 +1007,50 @@ signed {
 
 /* Tables  */
 
-text table {
-  display: table;
-  margin: 1em 0 1em 0;
+table {
+    display: table;
+    margin: 1em 0 1em 0;
 }
-text table > head{
+table > head{
     display:table-caption;
-    font-family: "BBAWfont-italic";
+    font-family: "BBAWfont";
+    font-style: italic;
     margin-bottom: 6pt;
 }
 
-text row {
-  display: table-row;
-}
-text row[role='label'] {
-   color: inherit;
-   background-color: #aaa;
-   font-weight: bold;
+row {
+    display: table-row;
 }
 
-text cell {
-  display: table-cell;
-  border: 1px dashed silver;
-  padding: 3px;
-  color: inherit;
-  background-color:inherit;
+row[role='label'] {
+    color: inherit;
+    background-color: #aaa;
+    font-weight: bold;
 }
 
-text table[rend='drawn'] cell {
+cell {
+    display: table-cell;
+    border: 1px dashed silver;
+    padding: 3px;
+    color: inherit;
+    background-color:inherit;
+}
+
+table[rend='drawn'] cell {
     border: 1px solid silver;
 }
 
-text cell[rendition='#right'] {
+cell[rendition='#right'] {
     text-align: right;
 }
 
-text cell[rendition='#c'] {
+cell[rendition='#c'] {
     text-align: center;
 }
 
-text cell[role='label'] {
-   color: inherit;
-   background-color: #bbb;
+cell[role='label'] {
+    color: inherit;
+    background-color: #bbb;
 }
 
 /* Authors editing */
@@ -846,8 +1068,18 @@ text del {
     -oxy-display-tags: none;
 }
 
+add::before {
+    font: XITS;
+    content: "√〈"
+}
+add::after {
+    font: XITS;
+    content: "〉"
+}
+
 quote add,
 text add {
+    vertical-align: baseline; position: relative; top: -.25em; font-size: 85%;
     color: green;
     -oxy-display-tags: none;
     -oxy-placeholder-content: "[Hinzufügung]"
@@ -897,6 +1129,20 @@ text hi[rendition="#i"] {
     -oxy-display-tags: none;
 }
 
+quote hi[rendition="#fr"],
+text hi[rendition="#fr"],
+quote hi[rendition="#f"],
+text hi[rendition="#f"] {
+    font-family: Fraktur;
+    -oxy-display-tags: none;
+}
+
+quote hi[rendition="#b"],
+text hi[rendition="#b"] {
+    font-weight: bold;
+    -oxy-display-tags: none;
+}
+
 quote hi[rendition="#g"],
 text hi[rendition="#g"] {
     letter-spacing:0.125em;
@@ -910,7 +1156,8 @@ head[rendition='#c'] {
 /* Publishers editing */
 quote supplied,
 text supplied {
-    font-family: "BBAWfont-italic";
+    font-family: "BBAWfont";
+    font-style: italic;
     background-color: #e0e0e0;
     -oxy-display-tags: none;    
 }
@@ -930,7 +1177,8 @@ text supplied:after {
 
 text supplied[cert="low"]:before {
     content: "zu ergänzen wohl [";
-    font-family: "BBAWfont-italic";
+    font-family: "BBAWfont";
+    font-style: italic;
     color: gray;
 }
 
@@ -953,6 +1201,15 @@ quote choice abbr,
 text choice abbr {
     background-color: #FFDDDD;
     -oxy-display-tags: none;
+}
+
+reg:before, expan:before {
+    content: "[= ";
+    font-style: normal;
+}
+reg:after, expan:after {
+    content: "]";
+    font-style: normal;
 }
 
 quote choice corr,
@@ -996,6 +1253,8 @@ quote unclear,
 text gap,
 text unclear {
     background-color: #FFA100;
+    color: #444444;
+    padding-left: .4ex; padding-right: .4ex;
     -oxy-display-tags: none;
 }
 
@@ -1031,7 +1290,8 @@ text damage:after {
 
 quote ex,
 text ex {
-    font-family: "BBAWfont-italic";
+    font-family: "BBAWfont";
+    font-style: italic;
     -oxy-display-tags: none;
 }
 
@@ -1056,6 +1316,7 @@ hi[rendition='#mPrint'],
 p[rendition='#mPrint'],
 address[rendition='#mPrint'] {
     font-family: "Biolinum", Helvetica, Arial, Sans;
+    font-weight: bold;
 }
 
 
@@ -1076,7 +1337,8 @@ abstract seg note,
 text seg note,
 text note[type="sachapparat"] {
     padding-left: 0.5em;
-    font-family: "BBAWfont-italic";
+    font-family: "BBAWfont";
+    font-style: italic;
     color: #423E2C;
     background-color: #D6D2C2;
     -oxy-placeholder-content: "[Sachanmerkung hier eingeben]";
@@ -1164,6 +1426,25 @@ witness bibl[sameAs]:after {
 text date {
     -oxy-display-tags: none;
 }
+/*
+date[when]:hover:after {
+    color: #ff8000;
+    content: "[=" attr(when) "]";
+}
+date[from]:hover:after {
+    color: #ff8000;
+    content: "[=" attr(from)"–"attr(to) "]";
+}
+*/
+
+msContents:before {
+    content: "Inhalt: ";
+    font-style: normal;
+    font-weight: bold;
+}
+msContents {
+    display: block;
+}
 
 /*  References */
 
@@ -1238,6 +1519,10 @@ profileDesc textClass keywords term:last-of-type:after {
 
 /* revisionDesc */
 
+revisionDesc listChange:before{
+    content: "Änderungen:";
+    font-weight: bold;
+}
 revisionDesc listChange {
 -oxy-foldable : true ;
 -oxy-folded : true ;
@@ -1277,54 +1562,57 @@ line-height : 1.4 ;
 
 
 revisionDesc[status='draft']:before {
-        content:
-        "Status: " url('gfx/status_draft.gif')
-    }
-    
+    content:
+    "Status: " url('gfx/status_draft.gif')
+}
+
 revisionDesc[status='final']:before {
-        content:
-        "Status: " url('gfx/status_final.gif')
-         }
- revisionDesc {
-        display: block;
-        margin: 1em 0 0.5em 0;
-         color : rgb(70 , 94 , 122) ;
-    }
- 
+    content:
+    "Status: " url('gfx/status_final.gif')
+}
+revisionDesc {
+    display: block;
+    margin: 1em 0 0.5em 0;
+    color : rgb(70 , 94 , 122) ;
+}
+
 revisionDesc:after {
-        content: oxy_editor(type,button,actionID,revisionDesc);
-    }
+    content: oxy_editor(type,button,actionID,revisionDesc);
+}
 
 
 revisionDesc listChange:before {
-                display: block;
-               margin: 1em 0 0.5em 0;
-               font-family : "BBAWfont-italic" ;     
-               
-               color : rgb(70 , 94 , 122) ;
-    	content: "Bearbeitungshistorie";
-    	margin: 0.5em 0 0 0;
-    	
-    }
-    
+    display: block;
+    margin: 1em 0 0.5em 0;
+    font-family : "BBAWfont";
+    font-style: normal;
+    font-weight: bold;
+    color : rgb(70 , 94 , 122) ;
+    content: "Bearbeitungshistorie (ausklappbar)";
+    margin: 0.5em 0 0 0;
+}
+
 revisionDesc listChange{  
     -oxy-foldable: true;
 	-oxy-folded: true;
-	
-  }
+}
 
 revisionDesc change {
     -oxy-show-placeholder: always;
     -oxy-placeholder-content: "[Kommentar zur Änderung eingeben]";
-    }
+}
 revisionDesc change:before {
-    	content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd');
-    }
- revisionDesc change[who]:before {
-    	content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd')
-        	     " von " oxy_editor(type,text,edit,'@who',columns,10) " ";
-    }
+    content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd');
+}
+revisionDesc change[who]:before {
+    content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd')
+    " von " oxy_editor(type,text,edit,'@who',columns,10) " ";
+}
 
+date {
+    -oxy-placeholder-content: "DATUM";
+    content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd')
+}
 
 /* Variantenapparat */
 text app,
@@ -1377,3 +1665,123 @@ text app rdg witStart{
     content: "†";
 }
 
+cell[xml|id="entwurf"], cell[xml|id=gedruckt], cell[xml|id=korrigiert],
+row[xml|id="entwurf"] > cell:nth-child(2),
+  row[xml|id=gedruckt] > cell:nth-child(2),
+  row[xml|id=korrigiert] > cell:nth-child(2)
+{
+    content: oxy_checkbox(
+        edit, "#text",
+        values, "ja",
+        uncheckedValues, "nein",
+        labels, "");
+}
+
+cell[xml|id="ueberlieferungsform"],
+row[xml|id="ueberlieferungsform"] > cell:nth-child(2)
+{
+    content: oxy_combobox(           
+            edit, "#text",
+            editable, false,
+            values, "Original, Kopie, Entwurf",
+            labels, "Original (Normalfall), Kopie, Entwurf");
+}
+
+cell[xml|id="ueberlieferungsart"],
+row[xml|id="ueberlieferungsart"] > cell:nth-child(2) {
+    content: oxy_combobox(           
+            edit, "#text",
+            editable, false,
+            values, "Druck, Handschrift");
+}
+
+row[xml|id="schrifttraeger"] > cell:nth-child(2),
+cell[xml|id="schrifttraeger"]
+{
+    content: oxy_combobox(           
+            edit, "#text",
+            editable, true,
+            values, "Pergament, Papier, Stein, Holz");
+}
+
+row[xml|id="probleme"] > cell:nth-child(2),
+cell[xml|id="probleme"] {
+    -oxy-placeholder-content: "Hier bitte NUR Schwierigkeiten mit Datierung und Benennung des Dokuments – alles andere in Anmerkungen!";
+}
+
+row[xml|id="umfang"] > cell:nth-child(2),
+cell[xml|id="umfang"] {
+    -oxy-placeholder-content: "Bitte ausfüllen, Umfang in Seiten";
+}
+
+row[xml|id="abmessungen"] > cell:nth-child(2),
+cell[xml|id="abmessungen"]{
+    -oxy-placeholder-content: "Bitte ausfüllen, Form: Breite × Höhe, z.B. 21cm × 29,7cm";
+}
+
+row[xml|id="dokTyp"] > cell:nth-child(2),
+cell[xml|id="dokTyp"] {
+    content: oxy_combobox(           
+            edit, "#text",
+            editable, true,
+            values, "Korrespondenz\, privat, Korrespondenz\, geschäftlich, Korrespondenz\, amtlich, Notiz, Codex, Einzeldokument, Buch, Broschüre, Foto, Postkarte, mit Foto, Fotoplatten");
+            visibility: -oxy-collapse-text;
+}
+
+langUsage:before {
+    padding-top:1ex;
+    content: "Sprachen: ";
+    font-weight: bold;
+    font-style: normal;
+}
+
+langUsage {
+    display: block;
+}
+
+language {
+    display:block;
+    margin-left: 1em;
+}
+
+*[xml|id="wortbedeutungen"] term:after,
+*[xml|id="terms"] term:after {
+    content: ": ";
+    font-style: normal;
+}
+
+*[xml|id="wortbedeutungen"] term:empty,
+*[xml|id="terms"] term:empty {
+    content: "Terminus";
+    font-weight: bold;
+}
+
+*[xml|id="wortbedeutungen"] term,
+*[xml|id="terms"] term {
+    background-color: #CCCCCC;
+    -oxy-placeholder-content: "Terminus";
+    font-style: normal;
+}
+
+item:empty {
+    content: "TEXT";
+    font-weight: bold;
+    font-style: normal;
+    background-color: #CCCCCC;
+    -oxy-placeholder-content: "TEXT";
+}
+
+sourceDesc > table row > cell:nth-child(1) {
+    font-style: normal;
+    font-weight: bold;
+}
+
+author {
+    display: block;
+    -oxy-placeholder-content: "Hier VERFASSER eintragen.";
+}
+
+title[type="main"]{
+    display: block;
+    -oxy-placeholder-content: "Bitte ausfüllen: Dateiname ohne .pdf";
+}

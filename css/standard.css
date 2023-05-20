@@ -45,7 +45,7 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 }
 
 @font-face{
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     src:url("../fonts/XITS-Italic.otf");
     font-weight: normal;
     font-style: italic;
@@ -60,7 +60,7 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 }
 
 @font-face{
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     src:url("../fonts/NotoSans-BoldItalic.ttf");
     font-weight: bold;
     font-style: italic;
@@ -68,14 +68,14 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 
 
 @font-face{
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     src:url("../fonts/NotoSans-Bold.ttf");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face{
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     src:url("../fonts/NotoSans-Italic.ttf");
     font-weight: normal;
     font-style: italic;
@@ -83,14 +83,14 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 
 
 @font-face{
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     src:url("../fonts/NotoSans-Regular.ttf");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face{
-    font-family: "BBAWfont-italic";
+    font-family: "TextFont-italic";
     src:url("../fonts/NotoSans-Italic.ttf");
     font-weight: normal;
     size-adjust: 90%;
@@ -145,7 +145,7 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 /*
 
 @font-face{
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     src:url("../fonts/LibertinusSerif-BoldItalic.otf");
     font-weight: bold;
     font-style: italic;
@@ -153,14 +153,14 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 
 
 @font-face{
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     src:url("../fonts/LibertinusSerif-Bold.otf");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face{
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     src:url("../fonts/LibertinusSerif-Italic.otf");
     font-weight: normal;
     font-style: italic;
@@ -168,14 +168,14 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 
 
 @font-face{
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     src:url("../fonts/LibertinusSerif-Regular.otf");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face{
-    font-family: "BBAWfont-italic";
+    font-family: "TextFont-italic";
     src:url("../fonts/LibertinusSerif-Italic.otf");
     font-weight: normal;
 }
@@ -208,7 +208,7 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 
 TEI {
     padding: 1em;
-    font-family: BBAWfont;
+    font-family: TextFont;
 }
 
 /* falls Lesekopie geöffnet beim Verweisprüfen */
@@ -223,7 +223,7 @@ TEI[telota|copy] {
 teiHeader {
     padding: 0 0 1em 0;
     border-bottom: 1px #000000 solid;
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     font-style: italic;
 
 }
@@ -582,7 +582,7 @@ profileDesc abstract:before {
     content: "Regest: ";
     font-weight: bold;
     font-style: normal;
-    font-family: BBAWfont;
+    font-family: TextFont;
 }
 
 profileDesc abstract p {
@@ -593,7 +593,7 @@ profileDesc abstract p {
 
 note quote,
 abstract quote {
-    font-family: BBAWfont;
+    font-family: TextFont;
     -oxy-display-tags: none;
 }
 
@@ -856,20 +856,20 @@ text cb {
 text pb[n]:after,
 text cb[n]:after {
     content: "(" attr(n) ")";
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     font-style: italic;
     color: gray;
 }
 
 text pb[facs]:after {
     content: "(folio)";
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     font-style: italic;
 }
 
 text pb[n][facs]:after {
     content: "(" attr(n) ")";
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     font-style: italic;
 }
 
@@ -1013,7 +1013,7 @@ table {
 }
 table > head{
     display:table-caption;
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     font-style: italic;
     margin-bottom: 6pt;
 }
@@ -1156,7 +1156,7 @@ head[rendition='#c'] {
 /* Publishers editing */
 quote supplied,
 text supplied {
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     font-style: italic;
     background-color: #e0e0e0;
     -oxy-display-tags: none;    
@@ -1177,7 +1177,7 @@ text supplied:after {
 
 text supplied[cert="low"]:before {
     content: "zu ergänzen wohl [";
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     font-style: italic;
     color: gray;
 }
@@ -1290,7 +1290,7 @@ text damage:after {
 
 quote ex,
 text ex {
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     font-style: italic;
     -oxy-display-tags: none;
 }
@@ -1337,7 +1337,7 @@ abstract seg note,
 text seg note,
 text note[type="sachapparat"] {
     padding-left: 0.5em;
-    font-family: "BBAWfont";
+    font-family: "TextFont";
     font-style: italic;
     color: #423E2C;
     background-color: #D6D2C2;
@@ -1584,7 +1584,7 @@ revisionDesc:after {
 revisionDesc listChange:before {
     display: block;
     margin: 1em 0 0.5em 0;
-    font-family : "BBAWfont";
+    font-family : "TextFont";
     font-style: normal;
     font-weight: bold;
     color : rgb(70 , 94 , 122) ;

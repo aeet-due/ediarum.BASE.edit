@@ -97,7 +97,7 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 }
 
 @font-face{
-    font-family: "Biolinum";
+    font-family: "OtherFont";
     src: url("../fonts/NotoSerif-BoldItalic.ttf");
     font-weight: bold;
     font-style: italic;
@@ -105,21 +105,21 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 
 
 @font-face{
-    font-family: "Biolinum";
+    font-family: "OtherFont";
     src: url("../fonts/NotoSerif-Bold.ttf");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face{
-    font-family: "Biolinum";
+    font-family: "OtherFont";
     src: url("../fonts/NotoSerif-BoldItalic.ttf");
     font-weight: bold;
     font-style: italic;
 }
 
 @font-face{
-    font-family: "Biolinum";
+    font-family: "OtherFont";
     src: url("../fonts/NotoSerif-Italic.ttf");
     font-weight: normal;
     font-style: italic;
@@ -182,14 +182,14 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 
 
 @font-face{
-    font-family: "Biolinum";
+    font-family: "OtherFont";
     src: url("../fonts/LibertinusSans-Bold.otf");
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face{
-    font-family: "Biolinum";
+    font-family: "OtherFont";
     src: url("../fonts/LibertinusSans-Italic.otf");
     font-weight: normal;
     font-style: italic;
@@ -198,7 +198,7 @@ along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 
 
 @font-face{
-    font-family: "Biolinum";
+    font-family: "OtherFont";
     src: url("../fonts/LibertinusSans-Regular.otf");
     font-weight: normal;
     font-style: normal;
@@ -369,6 +369,13 @@ sourceDesc msDesc idno[type='uri']:before {
 sourceDesc msDesc physDesc p {
     display: block;
     -oxy-placeholder-content: "[Hier Papier, Format etc. eintragen]";
+}
+
+p {
+    -oxy-placeholder-content: "[Absatz]";
+}
+p::after {
+    content: "¶";
 }
 
 sourceDesc msDesc physDesc:before {
@@ -803,14 +810,14 @@ list item {
     margin-left: 1ex;
     display: block;
     -oxy-display-tags: none;
-    list-style-type:lower-alpha;
+    /* list-style-type:lower-alpha; */
 }
 list item{
     text-indent: -1em;
 }
 
 
-list item:not([n])::before {
+teiHeader list item:not([n])::before {
     display: inline-block;
     content: "•";
     width: 1em;
@@ -835,22 +842,44 @@ list {
     margin: 1em 0 0 1em;    
 }
 
-text space {
+/* text space {
     content: "   ";
+    border-bottom: 1px dotted gray;
+    -oxy-display-tags: none;
+} */
+
+text space {
+    vertical-align: baseline; position: relative; top: -.25em; 
+    content: " Lücke: " attr(quantity) " " attr(unit) " ";
+    font-family: Mono;
+    font-size: 85%;
+    border-top: 1px dotted gray;
     border-bottom: 1px dotted gray;
     -oxy-display-tags: none;
 }
 
 text pb,
 text cb {
-    content: "|";
+    background-color: lightgray;
+    border-top: #000000;
+    border-bottom: #000000;
+    border-style: solid;
+    border-left: 0;
+    border-right: 0;
+    font-family: Mono;
+    content: "neue Seite ";
     padding: 0;
     color: black;
     -oxy-display-tags: none;
+    display: block;
+    font-weight: bold;
+    text-align: center;
 }
 
 text cb {
-    content: "||";
+    border-left: #000000;
+    border-style: double;
+    content: "neue Spalte ";
 }
 
 text pb[n]:after,
@@ -882,16 +911,35 @@ fw {
     font-style: italic;
     color: gray;
     -oxy-display-tags: none; 
+    display: block;
+    padding-right: 1ex;
 }
 
-fw:before {
+fw[type=folNum]:before {
     font-style: normal;
-    content: "|("
+    content: "("
 }
 
-fw:after {
+fw[type=catch]:after {
+    font-style: normal;
+    content: "]"
+}
+fw[type=catch]:before {
+    font-style: normal;
+    content: "["
+}
+
+fw[type=folNum]:after {
     font-style: normal;
     content: ")"
+}
+
+fw[type="folNum"]{
+    text-align: center;
+}
+
+fw[type="catch"]{
+    text-align: right;
 }
 
 text figure {
@@ -926,6 +974,19 @@ text figure note {
     font-style: italic;
     -oxy-placeholder-content: "[Sacherläuterung zur Zeichnung bzw. Abbildung]"
 }
+
+text figure[type=placeholder] {
+    background-color: #00C6FF;
+    text-align: center;
+    display: inline-block;
+}
+text figure[type=placeholder] figDesc::before {
+    content: "{{"
+}
+text figure[type=placeholder] figDesc::after {
+    content: "}}"
+}
+
 
 /*  graphic DEPRECATED */
 text graphic {
@@ -1040,11 +1101,11 @@ table[rend='drawn'] cell {
     border: 1px solid silver;
 }
 
-cell[rendition='#right'] {
+cell[rendition='#right'], p[rendition='#right'] {
     text-align: right;
 }
 
-cell[rendition='#c'] {
+cell[rendition='#c'], p[rendition='#c'] {
     text-align: center;
 }
 
@@ -1296,14 +1357,14 @@ text ex {
 }
 
 text foreign {
-    font-family: "DejaVu Serif";
+    font-family: "DejaVu Serif", "TextFont";
     font-size: 0.8em;
     -oxy-display-tags: none;
     background-color: #e0e0e0;
 }
 
 text hi[rendition="#aq"] {
-    font-family: Biolinum;
+    font-family: OtherFont;
     -oxy-display-tags: none;
 }
 
@@ -1315,7 +1376,7 @@ hi[rendition='#mPrint'] {
 hi[rendition='#mPrint'],
 p[rendition='#mPrint'],
 address[rendition='#mPrint'] {
-    font-family: "Biolinum", Helvetica, Arial, Sans;
+    font-family: "OtherFont", Helvetica, Arial, Sans;
     font-weight: bold;
 }
 
@@ -1665,6 +1726,10 @@ text app rdg witStart{
     content: "†";
 }
 
+sourceDesc table row cell:nth-child(1) {
+    -oxy-editable: false; 
+}
+
 cell[xml|id="entwurf"], cell[xml|id=gedruckt], cell[xml|id=korrigiert],
 row[xml|id="entwurf"] > cell:nth-child(2),
   row[xml|id=gedruckt] > cell:nth-child(2),
@@ -1728,9 +1793,22 @@ cell[xml|id="dokTyp"] {
             visibility: -oxy-collapse-text;
 }
 
+text:before {
+    font-weight: bold;
+    content: "Schrift: " oxy_combobox(
+        edit, "@rend",
+        editable, false,
+        values, "#aq, #f",
+        labels, "Antiqua bzw. lateinische Schrift, Fraktur bzw. Kurrent");
+}
+
+text[rend="#f"]:before   {
+    font-family: Fraktur;
+}
+
 langUsage:before {
     padding-top:1ex;
-    content: "Sprachen: ";
+    content: "Sprachen (erste Sprache ist Haupt-Sprache des Dokuments): ";
     font-weight: bold;
     font-style: normal;
 }
@@ -1742,6 +1820,8 @@ langUsage {
 language {
     display:block;
     margin-left: 1em;
+    -oxy-placeholder-content: oxy_concat("Sprache: ", attr("ident"));
+    -oxy-editable: false; 
 }
 
 *[xml|id="wortbedeutungen"] term:after,
@@ -1763,7 +1843,7 @@ language {
     font-style: normal;
 }
 
-item:empty {
+teiHeader > item:empty {
     content: "TEXT";
     font-weight: bold;
     font-style: normal;

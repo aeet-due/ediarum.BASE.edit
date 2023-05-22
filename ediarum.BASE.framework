@@ -1003,10 +1003,10 @@ or ancestor-or-self::quote</String>
 											<String>note</String>
 										</field>
 										<field name="name">
-											<String>Anmerkung des Autors</String>
+											<String>Anmerkung Autors:in</String>
 										</field>
 										<field name="description">
-											<String>Anmerkung (Fußnote) im Manuskript, gesetzt durch den Autor</String>
+											<String>Anmerkung (Fußnote) im Manuskript, gesetzt durch Autor:in</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/note.gif</String>
@@ -1024,7 +1024,7 @@ or ancestor-or-self::quote</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>oxy:allows-child-element("note")</String>
+														<String>oxy:allows-child-element("note") and ancestor-or-self::div[@type="writingSession"]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1032,6 +1032,22 @@ or ancestor-or-self::quote</String>
 																<String>actionIDs</String>
 																<String>note_1
 hand</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("note")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>note_1</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -3161,6 +3177,56 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 									</action>
 									<action>
 										<field name="id">
+											<String>measuredSpace</String>
+										</field>
+										<field name="name">
+											<String>Leerraum mit Einheit</String>
+										</field>
+										<field name="description">
+											<String>Leerraum in der Zeile mit Einheit</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 SPACE</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element("space")</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;space xmlns="http://www.tei-c.org/ns/1.0" unit="${ask('Einheit:', combobox, ('chars':'Zeichen'; 'words':'Wörter'; 'lines':'Zeilen'; 'pages':'Seiten'; 'em':'em'), 'lines')}" quantity="${ask('Zahl:', combobox, ('1':'1'; '2':'2'; '3':'3'; '4':'4'), '1')}"/></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
 											<String>lg</String>
 										</field>
 										<field name="name">
@@ -3670,7 +3736,8 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::div</String>
+														<String>oxy:allows-child-element("table")</String>
+														<!--String>ancestor-or-self::div</String-->
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -4439,6 +4506,68 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															<entry>
 																<String>fragment</String>
 																<String>&lt;hi rendition="#sup" xmlns="http://www.tei-c.org/ns/1.0">&lt;/hi></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>hi[subscript]</String>
+										</field>
+										<field name="name">
+											<String>Tiefstellen</String>
+										</field>
+										<field name="description">
+											<String>Tiefstellen</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/icons/subcript20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/icons/subscript16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::idno</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;g rendition="#sub" xmlns="http://www.tei-c.org/ns/1.0">&lt;/g></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;hi rendition="#sub" xmlns="http://www.tei-c.org/ns/1.0">&lt;/hi></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -7818,7 +7947,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<String>@rendition[align]</String>
 										</field>
 										<field name="name">
-											<String>Ausrichtung ändern</String>
+											<String>Ausrichtung ändern [Tabelle]</String>
 										</field>
 										<field name="description">
 											<String>Ändert die Ausrichtung nach rechts, links oder mittig</String>
@@ -7842,6 +7971,55 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 														<String>ancestor-or-self::cell[@rendition="#right"] or
 ancestor-or-self::cell[@rendition="#c"] or
 ancestor-or-self::cell[not(@rendition)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>actionIDs</String>
+																<String>@rendition[align]_1
+remove_attr</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>p/@rendition[align]</String>
+										</field>
+										<field name="name">
+											<String>Ausrichtung ändern [Absatz]</String>
+										</field>
+										<field name="description">
+											<String>Ändert die Ausrichtung nach rechts, links oder mittig</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p[@rendition="#right"] or
+ancestor-or-self::p[@rendition="#c"] or
+ancestor-or-self::p[not(@rendition)]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -7949,6 +8127,139 @@ remove_attr</String>
 															<entry>
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>fw[catch]</String>
+										</field>
+										<field name="name">
+											<String>Kustode</String>
+										</field>
+										<field name="description">
+											<String>Kustode am Fuß der Seite</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String>I</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>following::tei:pb</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="catch">${ask('Kustoden-Text:', generic, ${selection})}&lt;/fw></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>following::tei:pb[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>.//tei:pb</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="catch">${ask('Kustoden-Text:', generic, ${selection})}&lt;/fw></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>.//tei:pb[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>platzhalter</String>
+										</field>
+										<field name="name">
+											<String>Platzhalter</String>
+										</field>
+										<field name="description">
+											<String>Platzhalter mit Beschreibung</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String>I</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element('figure')</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;figure type="placeholder" xmlns="http://www.tei-c.org/ns/1.0">&lt;figDesc>${ask('Beschreibung:', generic, ${selection})}&lt;/figDesc>&lt;/figure></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>following::tei:pb[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Before</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -8782,7 +9093,7 @@ rs_drei</String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M1 M2 L</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -9355,7 +9666,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 											<String>profileDesc_langUsage</String>
 										</field>
 										<field name="name">
-											<String>Sprache einfügen</String>
+											<String>Sprache hinzufügen</String>
 										</field>
 										<field name="description">
 											<String>Fügt eine Sprache ein, die im Dokument verwendet wird.</String>
@@ -12394,7 +12705,7 @@ gap_3</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Schriftart', combobox, ('#aq':'Antiqua bzw. lateinische Schrift';'#fr':'Fraktur bzw. Kurrent';), '#aq')}">&lt;/hi></String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rendition="${ask('Schriftart', combobox, ('#aq':'Antiqua bzw. lateinische Schrift';'#f':'Fraktur bzw. Kurrent';'#fr':'andere Fraktur bzw. Kurrent';), '#aq')}">&lt;/hi></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -14118,6 +14429,64 @@ ancestor-or-self::cell[not(@rendition)]</String>
 														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p[@rendition="#right"] or
+ancestor-or-self::cell[@rendition="#c"] or
+ancestor-or-self::cell[not(@rendition)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>${ask('Ausrichtung ändern', editable_combobox, ('#left':'linksbündig';'#right':'rechtsbündig';'#c':'zentriert';'':'';), '#left')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p[not(@rendition)]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::p</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>rendition</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>value</String>
+																<String>${ask('Ausrichtung ändern', editable_combobox, ('':'linksbündig';'#right':'rechtsbündig';'#c':'zentriert';'':'';), '')}</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
@@ -15814,7 +16183,7 @@ writingSession_writer_1
 										<String>ediarum</String>
 									</field>
 									<field name="accessKey">
-										<String>e</String>
+										<String>m</String>
 									</field>
 									<field name="iconPath">
 										<String></String>
@@ -15872,12 +16241,12 @@ writingSession_writer_1
 																	</menuItem>
 																	<menuItem>
 																		<field name="actionID">
-																			<String>lb[break]</String>
+																			<String>lb[break-hyphen]</String>
 																		</field>
 																	</menuItem>
 																	<menuItem>
 																		<field name="actionID">
-																			<String>lb[break-hyphen]</String>
+																			<String>lb[break]</String>
 																		</field>
 																	</menuItem>
 																</menuEntry-array>
@@ -16079,6 +16448,11 @@ writingSession_writer_1
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
+																<String>hi[subscript]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
 																<String>del</String>
 															</field>
 														</menuItem>
@@ -16161,6 +16535,11 @@ writingSession_writer_1
 														<menuItem>
 															<field name="actionID">
 																<String>orig-reg</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>abbr-expan</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -16392,7 +16771,7 @@ writingSession_writer_1
 											</menu>
 											<menu>
 												<field name="label">
-													<String>Sonderfunktionen</String>
+													<String>Sonderfunktionen und Leerräume</String>
 												</field>
 												<field name="accessKey">
 													<String></String>
@@ -16406,6 +16785,26 @@ writingSession_writer_1
 														<menuItem>
 															<field name="actionID">
 																<String>@rendition="mPrint"</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>fw[catch]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>measuredSpace</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>space</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>platzhalter</String>
 															</field>
 														</menuItem>
 														<menuItem>
@@ -16427,6 +16826,11 @@ writingSession_writer_1
 														<menuItem>
 															<field name="actionID">
 																<String>p[renditon=#et]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>p/@rendition[align]</String>
 															</field>
 														</menuItem>
 														<menuItem>
@@ -16945,6 +17349,40 @@ writingSession_writer_1
 									</field>
 									<field name="toolbarEntriesDescriptorList">
 										<toolbarEntry-array>
+											<toolbarSeparator/>
+											<toolbar>
+												<field name="id">
+													<String>Folio- und Seitenwechsel</String>
+												</field>
+												<field name="type">
+													<Integer>3</Integer>
+												</field>
+												<field name="largeIconPath">
+													<String>${framework}/icons/pagebreak.gif</String>
+												</field>
+												<field name="smallIconPath">
+													<String>${framework}/icons/pagebreak16.gif</String>
+												</field>
+												<field name="toolbarEntriesDescriptorList">
+													<toolbarEntry-array>
+														<toolbarItem>
+															<field name="actionID">
+																<String>pb</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>pb[facs]</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>fw</String>
+															</field>
+														</toolbarItem>
+													</toolbarEntry-array>
+												</field>
+											</toolbar>
 											<toolbarItem>
 												<field name="actionID">
 													<String>paragraph</String>
@@ -16972,12 +17410,12 @@ writingSession_writer_1
 														</toolbarItem>
 														<toolbarItem>
 															<field name="actionID">
-																<String>lb[break]</String>
+																<String>lb[break-hyphen]</String>
 															</field>
 														</toolbarItem>
 														<toolbarItem>
 															<field name="actionID">
-																<String>lb[break-hyphen]</String>
+																<String>lb[break]</String>
 															</field>
 														</toolbarItem>
 													</toolbarEntry-array>
@@ -17071,39 +17509,6 @@ writingSession_writer_1
 													<String>figure</String>
 												</field>
 											</toolbarItem>
-											<toolbar>
-												<field name="id">
-													<String>Folio- und Seitenwechsel</String>
-												</field>
-												<field name="type">
-													<Integer>3</Integer>
-												</field>
-												<field name="largeIconPath">
-													<String>${framework}/icons/pagebreak.gif</String>
-												</field>
-												<field name="smallIconPath">
-													<String>${framework}/icons/pagebreak16.gif</String>
-												</field>
-												<field name="toolbarEntriesDescriptorList">
-													<toolbarEntry-array>
-														<toolbarItem>
-															<field name="actionID">
-																<String>pb</String>
-															</field>
-														</toolbarItem>
-														<toolbarItem>
-															<field name="actionID">
-																<String>pb[facs]</String>
-															</field>
-														</toolbarItem>
-														<toolbarItem>
-															<field name="actionID">
-																<String>fw</String>
-															</field>
-														</toolbarItem>
-													</toolbarEntry-array>
-												</field>
-											</toolbar>
 											<toolbarSeparator/>
 											<toolbarItem>
 												<field name="actionID">
@@ -17185,6 +17590,11 @@ writingSession_writer_1
 														<toolbarItem>
 															<field name="actionID">
 																<String>orig-reg</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>abbr-expan</String>
 															</field>
 														</toolbarItem>
 													</toolbarEntry-array>

@@ -204,7 +204,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift P</String>
+											<String>M1 M2 P</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1118,10 +1118,10 @@ hand</String>
 											<String>Im Manuskript explizit erwähnte Person kennzeichnen</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/icons/persName.gif</String>
 										</field>
 										<field name="smallIconPath">
-											<String></String>
+											<String>${framework}/icons/persName16.gif</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -1249,10 +1249,10 @@ or ancestor-or-self::item</String>
 											<String>Im Manuskript explizit erwähnten Ort kennzeichnen</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/icons/placeName.gif</String>
 										</field>
 										<field name="smallIconPath">
-											<String></String>
+											<String>${framework}/icons/placesName16.gif</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3034,10 +3034,10 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 											<String>sic-corr[deleted]</String>
 										</field>
 										<field name="name">
-											<String>Streichung durch den Bearbeiter</String>
+											<String>Streichung durch Bearbeiter:in</String>
 										</field>
 										<field name="description">
-											<String>Streichung eines überflüssigen Wortes durch den Bearbeiter</String>
+											<String>Streichung eines überflüssigen Wortes durch Bearbeiter:in</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/surplus.gif</String>
@@ -6656,10 +6656,10 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<String>sic-corr</String>
 										</field>
 										<field name="name">
-											<String>Korrektur durch den Herausgeber</String>
+											<String>Korrektur durch Herausgeber:in</String>
 										</field>
 										<field name="description">
-											<String>Korrektur durch den Herausgeber</String>
+											<String>Korrektur durch Herausgeber:in</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/corr-sic.gif</String>

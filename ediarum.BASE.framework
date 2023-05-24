@@ -8166,7 +8166,7 @@ remove_attr</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>following::tei:pb</String>
+														<String>preceding::tei:pb</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>

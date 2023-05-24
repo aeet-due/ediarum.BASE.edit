@@ -12,14 +12,17 @@ authors:
   - family-names: Klappenbach
     given-names: Lou    
     orcid: "https://orcid.org/0000-0001-6587-3353"
+  - family-names: Fisseni
+    given-names: Bernhard
+    orcid: "https://orcid.org/0000-0003-3434-8964"
 title: ediarum.BASE.edit 
-abstract: "ediarum.BASE.edit is an input interface for New Germanic editions in Oxygen XML Author. It enables easy and convenient transcription and annotation of manuscripts or prints in TEI-XML. The data model is largely based on the Base format of the German Text Archive (DTA), a subset of the TEI guidelines."
+abstract: "ediarum.BASE.edit is an input interface for New Germanic editions in Oxygen XML Author. It enables easy and convenient transcription and annotation of manuscripts or prints in TEI-XML. The data model is largely based on the Base format of the German Text Archive (DTA), a subset of the TEI guidelines. This is the AEET version."
 type: software
-date-released: "2021-12-22"
-version: 2.0.0
-repository-code: "https://github.com/ediarum/ediarum.BASE.edit"
+date-released: null
+version: 4.0.0-SNAPSHOT
+repository-code: "https://github.com/aeet-due/ediarum.BASE.edit"
 identifiers:
-  - description: "All versions of ediarum.BASE.edit in Zenodo"
+  - description: "All versions of the original BBAW ediarum.BASE.edit in Zenodo"
     type: doi
     value: 10.5281/zenodo.2394140
 license: "GPL-3.0"

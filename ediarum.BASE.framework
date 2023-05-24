@@ -8142,13 +8142,13 @@ remove_attr</String>
 									</action>
 									<action>
 										<field name="id">
-											<String>fw[catch]</String>
+											<String>fw[catch]top</String>
 										</field>
 										<field name="name">
-											<String>Kustode</String>
+											<String>Kustode o.ä. (Kopf)</String>
 										</field>
 										<field name="description">
-											<String>Kustode am Fuß der Seite</String>
+											<String>>Kustode, Seitenzahl oder Bogensignatur am Kopf der Seite</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -8172,7 +8172,85 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="catch">${ask('Kustoden-Text:', generic, ${selection})}&lt;/fw></String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="top">${ask('Text:', generic, ${selection})}&lt;/fw></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>preceding::tei:pb[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>.//tei:pb</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="top">${ask('Text:', generic, ${selection})}&lt;/fw></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>.//tei:pb[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>fw[catch]</String>
+										</field>
+										<field name="name">
+											<String>Kustode o.ä. (Fuß)</String>
+										</field>
+										<field name="description">
+											<String>Kustode, Seitenzahl oder Bogensignatur am Fuß der Seite</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String>I</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>following::tei:pb</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="bottom">${ask('Text:', generic, ${selection})}&lt;/fw></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -8196,7 +8274,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="catch">${ask('Kustoden-Text:', generic, ${selection})}&lt;/fw></String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="bottom">${ask('Text:', generic, ${selection})}&lt;/fw></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -8253,14 +8331,14 @@ remove_attr</String>
 																<String>fragment</String>
 																<String>&lt;figure type="placeholder" xmlns="http://www.tei-c.org/ns/1.0">&lt;figDesc>${ask('Beschreibung:', generic, ${selection})}&lt;/figDesc>&lt;/figure></String>
 															</entry>
-															<entry>
+															<!--entry>
 																<String>insertLocation</String>
 																<String>following::tei:pb[1]</String>
 															</entry>
 															<entry>
 																<String>insertPosition</String>
 																<String>Before</String>
-															</entry>
+															</entry-->
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
@@ -16790,6 +16868,11 @@ writingSession_writer_1
 														<menuItem>
 															<field name="actionID">
 																<String>fw[catch]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>fw[catch]top</String>
 															</field>
 														</menuItem>
 														<menuItem>

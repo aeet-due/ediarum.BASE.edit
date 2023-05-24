@@ -1190,7 +1190,8 @@ or ancestor-or-self::abstract
 or ancestor-or-self::correspDesc/note
 or ancestor-or-self::note[parent::notesStmt]
 or ancestor-or-self::p[parent::physDesc]
-or ancestor-or-self::item</String>
+or ancestor-or-self::item
+or ancestor-or-self::table[@xml:id="metadaten"]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1320,7 +1321,9 @@ or ancestor-or-self::item</String>
 or ancestor-or-self::abstract 
 or ancestor-or-self::correspDesc/note
 or ancestor-or-self::note[parent::notesStmt]
-or ancestor-or-self::item</String>
+or ancestor-or-self::p[parent::physDesc]
+or ancestor-or-self::item
+or ancestor-or-self::table[@xml:id="metadaten"]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -9535,7 +9538,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//profileDesc/creation[not(persName)] and not(//correspDesc)</String>
+														<String>//profileDesc/creation[not(placeName)] and not(//correspDesc)</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -9583,7 +9586,7 @@ or ancestor-or-self::note[parent::notesStmt]</String>
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//profileDesc/creation[persName] and not(//correspDesc)</String>
+														<String>//profileDesc/creation[placeName] and not(//correspDesc)</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>

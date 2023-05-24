@@ -8148,7 +8148,7 @@ remove_attr</String>
 											<String>Kustode o.ä. (Kopf)</String>
 										</field>
 										<field name="description">
-											<String>>Kustode, Seitenzahl oder Bogensignatur am Kopf der Seite</String>
+											<String>Kustode, Seitenzahl oder Bogensignatur am Kopf der Seite</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>

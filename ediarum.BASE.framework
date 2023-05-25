@@ -5134,6 +5134,66 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 									</action>
 									<action>
 										<field name="id">
+											<String>envelope</String>
+										</field>
+										<field name="name">
+											<String>Umschlag hinzufügen</String>
+										</field>
+										<field name="description">
+											<String>Ein Umschlag, der zum Text gehört</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::div[@type="envelope"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;div  xmlns="http://www.tei-c.org/ns/1.0"  type="envelope"">
+&lt;p  xmlns="http://www.tei-c.org/ns/1.0">&lt;/p>
+&lt;/div></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::div[@type="writingSession"]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>false</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
 											<String>opener</String>
 										</field>
 										<field name="name">
@@ -17081,7 +17141,7 @@ writingSession_writer_1
 													<null/>
 												</field>
 											</menu>
-											<menu>
+											<!--menu>
 												<field name="label">
 													<String>Briefmetadaten</String>
 												</field>
@@ -17184,7 +17244,7 @@ writingSession_writer_1
 												<field name="context">
 													<null/>
 												</field>
-											</menu>
+											</menu-->
 											<menu>
 												<field name="label">
 													<String>Brieftext</String>
@@ -18169,7 +18229,7 @@ writingSession_writer_1
 														</toolbarEntry-array>
 													</field>
 												</toolbar>
-												<toolbar>
+												<!--toolbar>
 													<field name="id">
 														<String>Briefmetadaten</String>
 													</field>
@@ -18266,7 +18326,7 @@ writingSession_writer_1
 															</toolbarItem>
 														</toolbarEntry-array>
 													</field>
-												</toolbar>
+												</toolbar-->
 											<!--/toolbarEntry-array>
 										</field>
 									</toolbar>

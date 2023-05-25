@@ -5158,15 +5158,14 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::div[@type="envelope"]</String>
+														<String>ancestor-or-self::div[@type="writingSession"]</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;div  xmlns="http://www.tei-c.org/ns/1.0"  type="envelope"">
-&lt;p  xmlns="http://www.tei-c.org/ns/1.0">&lt;/p>
-&lt;/div></String>
+																<String>&lt;div xmlns="http://www.tei-c.org/ns/1.0" type="envelope">
+																&lt;?oxy_comment_start author="Bernhard Fisseni" comment="Sie können hier auch z.B. eine Adresse einfügen über ediarum → Brieftext → Adresse"?>&lt;p xmlns="http://www.tei-c.org/ns/1.0">&lt;/p>&lt;?oxy_comment_end?>&lt;/div></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -16567,6 +16566,64 @@ writingSession_writer_1
 											</menu>
 											<menu>
 												<field name="label">
+													<String>Brieftext</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>address</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>opener</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>envelope</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>closer</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>closer_dateline</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>postscript</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>writingSession</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>writingSession_writer</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
 													<String>Autorbearbeitungen</String>
 												</field>
 												<field name="accessKey">
@@ -17245,59 +17302,7 @@ writingSession_writer_1
 													<null/>
 												</field>
 											</menu-->
-											<menu>
-												<field name="label">
-													<String>Brieftext</String>
-												</field>
-												<field name="accessKey">
-													<String></String>
-												</field>
-												<field name="iconPath">
-													<String></String>
-												</field>
-												<field name="menuEntriesDescriptorList">
-													<menuEntry-array>
-														<menuItem>
-															<field name="actionID">
-																<String>address</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>opener</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>writingSession</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>writingSession_writer</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>closer</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>closer_dateline</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>postscript</String>
-															</field>
-														</menuItem>
-													</menuEntry-array>
-												</field>
-												<field name="context">
-													<null/>
-												</field>
-											</menu>
+
 											<menuSeparator/>
 											<menu>
 												<field name="label">

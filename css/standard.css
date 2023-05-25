@@ -736,6 +736,19 @@ text body div[type="regestOnly"] {
     content: "[Kein Text, nur Regest möglich]";
 }
 
+text body div[type="envelope"]::before {
+    content: "Umschlag:";
+    font-size: 125%;
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+
+text body div[type="envelope"] {
+    padding: 1ex;
+    display: block;
+    border:#000000 solid;
+}
+
 /* ############## text ################# */
 
 /* text structure */

@@ -8234,7 +8234,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="top">${ask('Text:', generic, ${selection})}&lt;/fw></String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'docSig':'Dokumenten-Nummer';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="top">${ask('Text:', generic, ${selection})}&lt;/fw></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -10810,7 +10810,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 M2 S</String>
+											<String></String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -16886,7 +16886,7 @@ writingSession_writer_1
 															</field>
 														</menuItem>
 														<menuSeparator/>
-														<menuItem>
+														<!--menuItem>
 															<field name="actionID">
 																<String>index_personen</String>
 															</field>
@@ -16900,7 +16900,7 @@ writingSession_writer_1
 															<field name="actionID">
 																<String>index_bibl</String>
 															</field>
-														</menuItem>
+														</menuItem-->
 													</menuEntry-array>
 												</field>
 												<field name="context">

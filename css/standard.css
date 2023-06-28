@@ -256,6 +256,43 @@ titleStmt respStmt {
     font-size: 0.8em;
 }
 
+editorialStmt {
+    display: block;
+}
+tagsDecl::before {
+    font-weight: bold;
+    font-style: normal;
+    display: block;
+    font-family: TextFont;
+    content:"Deklarationen für die Darstellung von XML-Dateien:";
+}
+
+tagsDecl, editorialDecl {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background: lightgray;
+}
+
+tagsDecl {
+    display: block;
+}
+
+rendition::before {
+    content: "#" attr("xml:id") " [" attr("scheme") "]:  ";
+    font-weight: bold;
+    font-style: normal;
+    display: inline-block;
+    font-family: TextFont;
+    text-align: right;
+    width: 10em;
+}
+rendition {
+    margin-left: 2em;
+    display: block;
+    font-style: normal;
+    font-family: monospace;
+}
+
 editor:after {
     content: "(Herausgeber)";
 }
@@ -1393,6 +1430,18 @@ address[rendition='#mPrint'] {
     font-weight: bold;
 }
 
+hi[rendition='#in'] {
+    font-size:150%;
+    -oxy-display-tags: none;
+}
+
+hi[rendition='#smaller'] {
+    font-size:smaller;
+}
+
+hi[rendition='#larger'] {
+    font-size:larger;
+}
 
 /* Annotation */
 
@@ -1877,4 +1926,12 @@ author {
 title[type="main"]{
     display: block;
     -oxy-placeholder-content: "Bitte ausfüllen: Dateiname ohne .pdf";
+}
+
+w {
+     -oxy-display-tags: none;   
+}
+
+s {
+    -oxy-display-tags: none;   
 }

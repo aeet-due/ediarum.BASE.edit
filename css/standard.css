@@ -256,15 +256,40 @@ titleStmt respStmt {
     font-size: 0.8em;
 }
 
+extent{
+    display: block;
+}
+
+extent::before {
+    font-weight: bold;
+    font-style: normal;
+    content: "Umfang: ";
+}
+
+extent, measure {
+    -oxy-display-tags: none;
+}
+
+measure::after {
+    content: " " attr(type) ";";
+}
+
+measure {
+    display: inline;
+}
+
+
+
 editorialStmt {
     display: block;
 }
+
 tagsDecl::before {
     font-weight: bold;
     font-style: normal;
     display: block;
     font-family: TextFont;
-    content:"Deklarationen für die Darstellung von XML-Dateien:";
+    content:"Deklarationen für die Darstellung von XML-Dateien";
 }
 
 tagsDecl, editorialDecl {
@@ -275,6 +300,8 @@ tagsDecl, editorialDecl {
 
 tagsDecl {
     display: block;
+    -oxy-foldable: true;
+	-oxy-folded: true;
 }
 
 rendition::before {
@@ -734,14 +761,38 @@ correspContext ref[type="next"][target^="http://"] {
     content: "Nachfolgender Brief: ";
 }
 
-correspContext ref[target]:after {
+correspContext ref[target]::after {
     content: " " url('gfx/link.png');
     link: oxy_url('${ediarum_website_base}', '${ediarum_website_path}${ediarum_website_letter}') "?id=" attr(target);
 }
 
-correspContext ref[target^="http://"]:after {
+correspContext ref[target^="http://"]::after,
+correspContext ref[target^="https://"]::after {
     content: " " url('gfx/link.png');
     link: attr(target);
+}
+ref[target^="http://"]::after, ref[target^="https://"]::after {
+    content: " " url('gfx/link.png');
+    link: attr(target);
+}
+idno[type="URLCatalogue"],
+ref[target^="http://"], ref[target^="https://"] {
+    -oxy-display-tags: none;
+    color: blue;
+}
+
+ref[target^="http://"], ref[target^="https://"] {
+    link: attr(target);
+}
+
+
+idno[type="URLCatalogue"]::after {
+    content: " " url('gfx/link.png');
+    link: oxy_xpath("./string()");
+}
+
+idno[type="URLCatalogue"] {
+    link: oxy_xpath("./string()");
 }
 
 /* Anmerkungen zum Brief */

@@ -706,19 +706,34 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::text
-or ancestor-or-self::quote</String>
+														<String>ancestor-or-self::unclear</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
-																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('Grund der unsicheren Lesung', combobox, ('illegible':'unleserlich';'covered':'durch Überschreibung/Überzeichnung schwer leserlich';), 'illegible')}" cert="${ask('Wahrscheinlichkeit dass Lesart zutrifft', combobox, ('high':'hohe Sicherheit der Lesart';'low':'geringe Sicherheit der Lesart';), '')}" /></String>
+																<String>caretPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	version="2.0">
+	&lt;xsl:import href="${framework}/resources/unwrap_el.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>ancestor-or-self::unclear</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>ancestor-or-self::unclear</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -730,7 +745,7 @@ or ancestor-or-self::quote</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('Grund der unsicheren Lesung', combobox, ('illegible':'unleserlich';'covered':'durch Überschreibung/Überzeichnung schwer leserlich';), 'illegible')}" cert="${ask('Wahrscheinlichkeit dass Lesart zutrifft', combobox, ('high':'hohe Sicherheit der Lesart';'low':'geringe Sicherheit der Lesart';), '')}" /></String>
+																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('Grund der unsicheren Lesung', combobox, ('illegible':'unleserlich';'covered':'durch Überschreibung/Überzeichnung schwer leserlich';), 'illegible')}" cert="${ask('Wahrscheinlichkeit, dass Lesart zutrifft', combobox, ('high':'hohe Sicherheit der Lesart';'low':'geringe Sicherheit der Lesart';), 'low')}" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1093,7 +1108,7 @@ hand</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('Grund für die Lücke', combobox, ('lost':'Zerstörung/Verlust';'empty':'Leerraum';'illegible':'unleserlich';'covered':'durch Überschreibung/Überzeichnung schwer leserlich';'fm':'fremdsprachlicher Text';'insignificant':'Für das Korpus unwichtiger Text'), 'lost')}" unit="${ask('Einheit', combobox, ('chars':'Zeichen';'lines':'Zeilen';'pages':'Seiten';'words':'Wörter';), 'chars')}"  quantity="${ask('Anzahl der unleserlichen Zeichen, Wörter, Zeilen oder Seiten', generic, '')}" /></String>
+																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('Grund für die Lücke', combobox, ('illegible':'unleserlich';'lost':'Zerstörung/Verlust';'empty':'Leerraum';'covered':'durch Überschreibung/Überzeichnung schwer leserlich';'fm':'fremdsprachlicher Text';'insignificant':'Für das Korpus unwichtiger Text'), 'illegible')}" unit="${ask('Einheit', combobox, ('chars':'Zeichen';'lines':'Zeilen';'pages':'Seiten';'words':'Wörter';), 'chars')}"  quantity="${ask('Anzahl der unleserlichen Zeichen, Wörter, Zeilen oder Seiten', generic, '')}" /></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1101,6 +1116,38 @@ hand</String>
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::gap</String>
+													</field>
+															<field name="argValues">
+																<serializableOrderedMap>
+																	<entry>
+																		<String>caretPosition</String>
+																		<String>After</String>
+																	</entry>
+																	<entry>
+																		<String>script</String>
+																		<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+		&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+			version="2.0">
+			&lt;xsl:import href="${framework}/resources/unwrap_el.xsl"/>
+		&lt;/xsl:stylesheet></String>
+																	</entry>
+																	<entry>
+																		<String>sourceLocation</String>
+																		<String>ancestor-or-self::gap</String>
+																	</entry>
+																	<entry>
+																		<String>targetLocation</String>
+																		<String>ancestor-or-self::gap</String>
+																	</entry>
+																</serializableOrderedMap>
+															</field>
+															<field name="operationID">
+																<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+															</field>
+														</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">

@@ -1417,7 +1417,7 @@ text unclear {
     background-color: #FFA100;
     color: #444444;
     padding-left: .4ex; padding-right: .4ex;
-    -oxy-display-tags: none;
+    /* -oxy-display-tags: none; */
 }
 
 quote gap:after,

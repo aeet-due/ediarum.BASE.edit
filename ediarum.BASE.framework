@@ -94,6 +94,162 @@
 								<action-array>
 									<action>
 										<field name="id">
+											<String>ediarum_remove_empty_attributes</String>
+										</field>
+										<field name="name">
+											<String>Entfernt leere Attribute</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::cb</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/remove_empty_attributes.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>self::cb</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::TEI</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>noattribute</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>ediarum_make_letter</String>
+										</field>
+										<field name="name">
+											<String>Dokument in Brief umwandeln</String>
+										</field>
+										<field name="description">
+											<String></String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>/TEI[@telota:doctype != "letter"]</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/add-doctype-letter.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>/TEI</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>/TEI</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>elementLocation</String>
+																<String>ancestor-or-self::TEI</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>noattribute</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
 											<String>ex</String>
 										</field>
 										<field name="name">
@@ -1599,7 +1755,8 @@ and not(oxy:current-selected-element())</String>
 										<field name="enabledInReadOnlyContext">
 											<Boolean>false</Boolean>
 										</field>
-									</action>									<action>
+									</action>
+									<action>
 										<field name="id">
 											<String>supplied</String>
 										</field>
@@ -5017,7 +5174,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//text[@type="letter"]/body</String>
+														<String>//TEI[@telota:doctype="letter"] or //text[@type="letter"]//body</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5297,7 +5454,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//text[@type="letter"] and ancestor-or-self::div[@type="writingSession"]/opener and ancestor-or-self::dateline
+														<String>(//TEI[@telota:doctype="letter"] or //text[@type="letter"]) and ancestor-or-self::div[@type="writingSession"]/opener and ancestor-or-self::dateline
 </String>
 													</field>
 													<field name="argValues">
@@ -5322,7 +5479,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//text[@type="letter"] and ancestor-or-self::opener
+														<String>(//TEI[@telota:doctype="letter"] or //text[@type="letter"]) and ancestor-or-self::opener
 </String>
 													</field>
 													<field name="argValues">
@@ -5471,7 +5628,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>value</String>
-																<String>${ask('Ãœberlieferung des Manuskripts:', radio, ('manuscript':'Handschrift';'copy':'Abschrift';'notExtant':'Nicht erhalten/überliefert';))}</String>
+																<String>${ask('Überlieferung des Manuskripts:', radio, ('manuscript':'Handschrift';'copy':'Abschrift';'notExtant':'Nicht erhalten/überliefert';))}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -5481,7 +5638,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>//text[@type='letter'] and //sourceDesc/msDesc</String>
+														<String>//sourceDesc/msDesc</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -5495,7 +5652,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 															</entry>
 															<entry>
 																<String>value</String>
-																<String>${ask('Ãœberlieferung des Manuskripts:', radio, ('manuscript':'Handschrift';'copy':'Abschrift';'notExtant':'Nicht erhalten';))}</String>
+																<String>${ask('Überlieferung des Manuskripts:', radio, ('manuscript':'Handschrift';'copy':'Abschrift';'notExtant':'Nicht erhalten';))}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -16421,6 +16578,11 @@ writingSession_writer_1
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>ediarum_make_letter</String>
+															</field>
+														</menuItem>
 														<menuItem>
 															<field name="actionID">
 																<String>paragraph</String>

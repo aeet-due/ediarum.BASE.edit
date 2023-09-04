@@ -164,6 +164,22 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
+														<String>ancestor-or-self::hi[@rendition='#u' or @rendition='#uu' or @rendition='#mMM']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>unwrapElementLocation</String>
+																<String>ancestor-or-self::hi[@rendition='#u' or @rendition='#uu' or @rendition='#mMM']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.UnwrapTagsOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
 														<String>oxy:allows-child-element("hi")</String>
 													</field>
 													<field name="argValues">
@@ -711,29 +727,13 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>caretPosition</String>
-																<String>After</String>
-															</entry>
-															<entry>
-																<String>script</String>
-																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
-&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	version="2.0">
-	&lt;xsl:import href="${framework}/resources/unwrap_el.xsl"/>
-&lt;/xsl:stylesheet></String>
-															</entry>
-															<entry>
-																<String>sourceLocation</String>
-																<String>ancestor-or-self::unclear</String>
-															</entry>
-															<entry>
-																<String>targetLocation</String>
-																<String>ancestor-or-self::unclear</String>
+																<String>unwrapElementLocation</String>
+																<String>ancestor-or-self::hi[@rendition='#u' or @rendition='#uu' or @rendition='#mMM']</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.UnwrapTagsOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>
@@ -1120,34 +1120,18 @@ hand</String>
 													<field name="xpathCondition">
 														<String>ancestor-or-self::gap</String>
 													</field>
-															<field name="argValues">
-																<serializableOrderedMap>
-																	<entry>
-																		<String>caretPosition</String>
-																		<String>After</String>
-																	</entry>
-																	<entry>
-																		<String>script</String>
-																		<String>&lt;?xml version="1.0" encoding="UTF-8"?>
-		&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-			version="2.0">
-			&lt;xsl:import href="${framework}/resources/unwrap_el.xsl"/>
-		&lt;/xsl:stylesheet></String>
-																	</entry>
-																	<entry>
-																		<String>sourceLocation</String>
-																		<String>ancestor-or-self::gap</String>
-																	</entry>
-																	<entry>
-																		<String>targetLocation</String>
-																		<String>ancestor-or-self::gap</String>
-																	</entry>
-																</serializableOrderedMap>
-															</field>
-															<field name="operationID">
-																<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
-															</field>
-														</actionMode>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>unwrapElementLocation</String>
+																<String>ancestor-or-self::gap</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.UnwrapTagsOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 										<field name="enabledInReadOnlyContext">
@@ -11097,10 +11081,10 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String>In gedrucktem Text hervorgehoben</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/icons/ex20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String></String>
+											<String>${framework}/icons/ex16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -11110,6 +11094,22 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::hi[@rendition='#i']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>unwrapElementLocation</String>
+																<String>ancestor-or-self::hi[@rendition='#i']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.UnwrapTagsOperation</String>
+													</field>
+												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
 														<String>oxy:allows-child-element("*:hi")</String>
@@ -11157,6 +11157,22 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 										<field name="actionModes">
 											<actionMode-array>
 												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::hi[@rendition='#mPrint']</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>unwrapElementLocation</String>
+																<String>ancestor-or-self::hi[@rendition='#mPrint']</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.UnwrapTagsOperation</String>
+													</field>
+												</actionMode>
+											<actionMode>
 													<field name="xpathCondition">
 														<String>oxy:allows-child-element("*:hi")</String>
 													</field>
@@ -12825,10 +12841,10 @@ gap_3</String>
 											<String>Fettgedruckter Text (nur bei Transkription gedruckter Texte)</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/icons/ElementBold16.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String></String>
+											<String>${framework}/icons/ElementBold16@2x.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -12838,7 +12854,23 @@ gap_3</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
-												<actionMode>
+													<actionMode>
+														<field name="xpathCondition">
+															<String>ancestor-or-self::hi[@rendition='#b']</String>
+														</field>
+														<field name="argValues">
+															<serializableOrderedMap>
+																<entry>
+																	<String>unwrapElementLocation</String>
+																	<String>ancestor-or-self::hi[@rendition='#b']</String>
+																</entry>
+															</serializableOrderedMap>
+														</field>
+														<field name="operationID">
+															<String>ro.sync.ecss.extensions.commons.operations.UnwrapTagsOperation</String>
+														</field>
+													</actionMode>
+													<actionMode>
 													<field name="xpathCondition">
 														<String></String>
 													</field>
@@ -16683,6 +16715,16 @@ writingSession_writer_1
 													<menuEntry-array>
 														<menuItem>
 															<field name="actionID">
+																<String>hi[#i]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[#b]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
 																<String>hi[underline]</String>
 															</field>
 														</menuItem>
@@ -17708,6 +17750,17 @@ writingSession_writer_1
 												</field>
 											</toolbarItem>
 											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>hi[#i]</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>hi[#b]</String>
+												</field>
+											</toolbarItem>
+
 											<toolbarItem>
 												<field name="actionID">
 													<String>hi[underline]</String>

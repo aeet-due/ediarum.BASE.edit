@@ -1282,7 +1282,15 @@ g[rendition="#sup"] {
     position: relative; 
     top: -0.5em;
     font-size: 0.7em;
-    -oxy-display-tags: none;
+    /* -oxy-display-tags: none; */
+}
+
+hi[rendition="#sub"],
+g[rendition="#sub"] {
+    position: relative; 
+    bottom: -0.5em;
+    font-size: 0.7em;
+    /* -oxy-display-tags: none; */
 }
 
 quote hi[rendition="#i"],

@@ -18141,7 +18141,7 @@ writingSession_writer_1
 												</field>
 											</toolbar>
 											<toolbarSeparator/>
-											<toolbar>
+											<!--toolbar>
 												<field name="id">
 													<String>Textstellen indizieren</String>
 												</field>
@@ -18173,7 +18173,7 @@ writingSession_writer_1
 														</toolbarItem>
 													</toolbarEntry-array>
 												</field>
-											</toolbar>
+											</toolbar-->
 											<toolbar>
 												<field name="id">
 													<String>Namen kennzeichnen</String>

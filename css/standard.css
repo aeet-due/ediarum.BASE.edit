@@ -1227,7 +1227,7 @@ text del {
     color: red;
     background-color: white;
     text-decoration: line-through;
-    -oxy-display-tags: none;
+    /* -oxy-display-tags: none; */
 }
 
 add::before {
@@ -1243,7 +1243,7 @@ quote add,
 text add {
     vertical-align: baseline; position: relative; top: -.25em; font-size: 85%;
     color: green;
-    -oxy-display-tags: none;
+    /* -oxy-display-tags: none; */
     -oxy-placeholder-content: "[Hinzufügung]"
 }
 
@@ -1589,7 +1589,7 @@ rs[type='place'],
 rs[type='bibl'],
 rs[type='term'] {
     color: #465E7A;
-    -oxy-display-tags: none;
+    /* -oxy-display-tags: none; */
 } 
 
 witness bibl {

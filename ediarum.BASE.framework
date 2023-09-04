@@ -749,10 +749,10 @@
 											<String>del</String>
 										</field>
 										<field name="name">
-											<String>Streichung</String>
+											<String>Streichung durch Autor:in</String>
 										</field>
 										<field name="description">
-											<String>Streichung im Manuskript durch den Autor</String>
+											<String>Streichung im Manuskript durch Autor:in</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/del.gif</String>
@@ -811,10 +811,10 @@
 											<String>subst</String>
 										</field>
 										<field name="name">
-											<String>Korrektur durch Autor</String>
+											<String>Korrektur durch Autor:in</String>
 										</field>
 										<field name="description">
-											<String>Getilgtes Wort mit gleichzeitiger Korrektur durch den Autor im Manuskript</String>
+											<String>Getilgtes Wort mit gleichzeitiger Korrektur durch Autor:in im Manuskript</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/subst2.gif</String>
@@ -1128,10 +1128,10 @@ or ancestor-or-self::quote</String>
 											<String>add</String>
 										</field>
 										<field name="name">
-											<String>Hinzufügung durch Autor</String>
+											<String>Hinzufügung durch Autor:in</String>
 										</field>
 										<field name="description">
-											<String>Hinzufügung im Text durch den Autor</String>
+											<String>Hinzufügung im Text durch Autor:in</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/add.gif</String>
@@ -1174,7 +1174,7 @@ or ancestor-or-self::quote</String>
 											<String>note</String>
 										</field>
 										<field name="name">
-											<String>Anmerkung Autors:in</String>
+											<String>Fußnote durch Autor:in</String>
 										</field>
 										<field name="description">
 											<String>Anmerkung (Fußnote) im Manuskript, gesetzt durch Autor:in</String>
@@ -11834,7 +11834,7 @@ or ancestor-or-self::notesStmt/note</String>
 											<String>Textpassage "erledigt"</String>
 										</field>
 										<field name="description">
-											<String>Textpassage ist durch den Autor im Manuskript als erledigt markiert</String>
+											<String>Textpassage ist durch Autor:in im Manuskript als erledigt markiert</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -16580,22 +16580,12 @@ writingSession_writer_1
 													<menuEntry-array>
 														<menuItem>
 															<field name="actionID">
-																<String>ediarum_make_letter</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
 																<String>paragraph</String>
 															</field>
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
 																<String>milestone</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>lg</String>
 															</field>
 														</menuItem>
 														<menuItem>
@@ -16628,6 +16618,44 @@ writingSession_writer_1
 																	<menuItem>
 																		<field name="actionID">
 																			<String>lb[break]</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+															<field name="context">
+																<null/>
+															</field>
+														</menu>
+														<menuItem>
+															<field name="actionID">
+																<String>pb.seite</String>
+															</field>
+														</menuItem>
+														<menu>
+															<field name="label">
+																<String>Seitenumbruch (differenziert) </String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String></String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>pb</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>pb[facs]</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>fw</String>
 																		</field>
 																	</menuItem>
 																</menuEntry-array>
@@ -16758,47 +16786,20 @@ writingSession_writer_1
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>figure</String>
+																<String>lg</String>
 															</field>
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>pb.seite</String>
+																<String>figure</String>
 															</field>
 														</menuItem>
-														<menu>
-															<field name="label">
-																<String>Seitenumbruch (differenziert) </String>
+
+														<menuItem>
+															<field name="actionID">
+																<String>ediarum_make_letter</String>
 															</field>
-															<field name="accessKey">
-																<String></String>
-															</field>
-															<field name="iconPath">
-																<String></String>
-															</field>
-															<field name="menuEntriesDescriptorList">
-																<menuEntry-array>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>pb</String>
-																		</field>
-																	</menuItem>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>pb[facs]</String>
-																		</field>
-																	</menuItem>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>fw</String>
-																		</field>
-																	</menuItem>
-																</menuEntry-array>
-															</field>
-															<field name="context">
-																<null/>
-															</field>
-														</menu>
+														</menuItem>
 													</menuEntry-array>
 												</field>
 												<field name="context">
@@ -16875,6 +16876,16 @@ writingSession_writer_1
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>foreign</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[#aq_#fr]</String>
+															</field>
+														</menuItem>
 														<menuItem>
 															<field name="actionID">
 																<String>hi[#i]</String>
@@ -17002,7 +17013,7 @@ writingSession_writer_1
 																<String>quote</String>
 															</field>
 														</menuItem>
-														<menu>
+														<!--menu>
 															<field name="label">
 																<String>Verweise</String>
 															</field>
@@ -17039,7 +17050,7 @@ writingSession_writer_1
 															<field name="context">
 																<null/>
 															</field>
-														</menu>
+														</menu-->
 														<menu>
 															<field name="label">
 																<String>Datumsangaben</String>
@@ -17106,11 +17117,11 @@ writingSession_writer_1
 																<String>persName</String>
 															</field>
 														</menuItem>
-														<menuItem>
+														<!--menuItem>
 															<field name="actionID">
 																<String>orgName</String>
 															</field>
-														</menuItem>
+														</menuItem-->
 														<menuItem>
 															<field name="actionID">
 																<String>placeName</String>
@@ -17126,7 +17137,7 @@ writingSession_writer_1
 																<String>xml_lang_span</String>
 															</field>
 														</menuItem>
-														<menuItem>
+														<!--menuItem>
 															<field name="actionID">
 																<String>bibl</String>
 															</field>
@@ -17135,7 +17146,7 @@ writingSession_writer_1
 															<field name="actionID">
 																<String>rs[term]</String>
 															</field>
-														</menuItem>
+														</menuItem-->
 														<menuSeparator/>
 														<!--menuItem>
 															<field name="actionID">
@@ -17267,11 +17278,11 @@ writingSession_writer_1
 															</field>
 														</menuItem>
 														<menuSeparator/>
-														<menuItem>
+														<!--menuItem>
 															<field name="actionID">
 																<String>metamark</String>
 															</field>
-														</menuItem>
+														</menuItem-->
 														<menuItem>
 															<field name="actionID">
 																<String>p[renditon=#mMM]</String>
@@ -17287,11 +17298,11 @@ writingSession_writer_1
 																<String>p/@rendition[align]</String>
 															</field>
 														</menuItem>
-														<menuItem>
+														<!--menuItem>
 															<field name="actionID">
 																<String>metamark[function=used]</String>
 															</field>
-														</menuItem>
+														</menuItem-->
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
@@ -17328,17 +17339,17 @@ writingSession_writer_1
 																<String>resetRegisterCache</String>
 															</field>
 														</menuItem>
-														<menuItem>
+														<!--menuItem>
 															<field name="actionID">
 																<String>wortbedeutung</String>
 															</field>
-														</menuItem>
+														</menuItem-->
 														<menuItem>
 															<field name="actionID">
 																<String>profileDesc_langUsage</String>
 															</field>
 														</menuItem>
-														<menuItem>
+														<!--menuItem>
 															<field name="actionID">
 																<String>msDesc_idno[uri]</String>
 															</field>
@@ -17409,7 +17420,7 @@ writingSession_writer_1
 															<field name="actionID">
 																<String>notesStmt</String>
 															</field>
-														</menuItem>
+														</menuItem-->
 														<menu>
 															<field name="label">
 																<String>Revision und Status</String>
@@ -17438,11 +17449,11 @@ writingSession_writer_1
 																<null/>
 															</field>
 														</menu>
-														<menuItem>
+														<!--menuItem>
 															<field name="actionID">
 																<String>keyword</String>
 															</field>
-														</menuItem>
+														</menuItem-->
 													</menuEntry-array>
 												</field>
 												<field name="context">
@@ -17554,7 +17565,7 @@ writingSession_writer_1
 												</field>
 											</menu-->
 
-											<menuSeparator/>
+											<!--menuSeparator/>
 											<menu>
 												<field name="label">
 													<String>Variantenapparat</String>
@@ -17650,7 +17661,7 @@ writingSession_writer_1
 												<field name="context">
 													<null/>
 												</field>
-											</menu>
+											</menu-->
 										</menuEntry-array>
 									</field>
 									<field name="context">
@@ -18019,7 +18030,7 @@ writingSession_writer_1
 													<String>seg</String>
 												</field>
 											</toolbarItem>
-											<toolbar>
+											<!--toolbar>
 												<field name="id">
 													<String>Verweise</String>
 												</field>
@@ -18067,7 +18078,7 @@ writingSession_writer_1
 														</toolbarItem>
 													</toolbarEntry-array>
 												</field>
-											</toolbar>
+											</toolbar-->
 											<toolbar>
 												<field name="id">
 													<String>Datum</String>
@@ -18183,11 +18194,11 @@ writingSession_writer_1
 																<String>persName</String>
 															</field>
 														</toolbarItem>
-														<toolbarItem>
+														<!--toolbarItem>
 															<field name="actionID">
 																<String>orgName</String>
 															</field>
-														</toolbarItem>
+														</toolbarItem-->
 														<toolbarItem>
 															<field name="actionID">
 																<String>placeName</String>
@@ -18203,7 +18214,7 @@ writingSession_writer_1
 																<String>xml_lang_span</String>
 															</field>
 														</toolbarItem>
-														<toolbarItem>
+														<!--toolbarItem>
 															<field name="actionID">
 																<String>bibl</String>
 															</field>
@@ -18212,7 +18223,7 @@ writingSession_writer_1
 															<field name="actionID">
 																<String>rs[term]</String>
 															</field>
-														</toolbarItem>
+														</toolbarItem-->
 														<toolbarSeparator/>
 														<toolbarItem>
 															<field name="actionID">
@@ -18389,7 +18400,7 @@ writingSession_writer_1
 																	<String>resetRegisterCache</String>
 																</field>
 															</toolbarItem>
-															<toolbarItem>
+															<!--toolbarItem>
 																<field name="actionID">
 																	<String>msDesc_idno[uri]</String>
 																</field>
@@ -18492,7 +18503,7 @@ writingSession_writer_1
 																<field name="actionID">
 																	<String>respStmt</String>
 																</field>
-															</toolbarItem>
+															</toolbarItem-->
 														</toolbarEntry-array>
 													</field>
 												</toolbar>

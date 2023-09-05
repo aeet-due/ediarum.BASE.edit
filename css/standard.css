@@ -1432,12 +1432,21 @@ quote gap:after,
 quote unclear:after,
 text gap:after,
 text unclear:after {
-    background-color: #FFA100;
+    /* background-color: #FFA100; */
 }
 
 quote gap,
 text gap {
-    content: "   ";
+    content: attr(quantity);
+    -oxy-editable: false;
+    width: attr(quantity);
+}
+quote gap:after,
+text gap:after {
+    content: " " attr(unit);
+    font-size: 50%;
+    display: inline-block;
+    transform: rotate(90deg);
 }
 
 text damage {

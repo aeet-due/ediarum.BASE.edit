@@ -8422,7 +8422,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'docSig':'Dokumenten-Nummer';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="top">${ask('Text:', generic, ${selection})}&lt;/fw></String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'docSig':'Dokumenten-Nummer';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="top">${ask('Text:', generic, '${selection}')}&lt;/fw></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -8446,7 +8446,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="top">${ask('Text:', generic, ${selection})}&lt;/fw></String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('Typ:', combobox, ('catch':'Kustode';'folNum':'Seitenzahl';'sig':'Bogen-Signatur';), 'catch')}" place="top">${ask('Text:', generic, '${selection}')}&lt;/fw></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -17450,11 +17450,11 @@ writingSession_writer_1
 																			<String>revisionDesc</String>
 																		</field>
 																	</menuItem>
-																	<menuItem>
+																	<!--menuItem>
 																		<field name="actionID">
 																			<String>revisionDesc[@status]</String>
 																		</field>
-																	</menuItem>
+																	</menuItem-->
 																</menuEntry-array>
 															</field>
 															<field name="context">

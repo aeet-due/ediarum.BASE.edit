@@ -1109,8 +1109,6 @@ text note {
     -oxy-show-placeholder: always;
 }
 
-
-
 text note[hand='#author']:after,
 text note[hand='#addressee']:after {
     content: none;
@@ -1258,10 +1256,20 @@ add::after {
 
 quote add,
 text add {
-    vertical-align: baseline; position: relative; top: -.25em; font-size: 85%;
+    vertical-align: baseline; 
+    font-size: 85%;
     color: green;
     /* -oxy-display-tags: none; */
     -oxy-placeholder-content: "[Hinzufügung]"
+}
+
+add[place="superlinear"] {
+    position: relative; top: -.25em; 
+}
+
+
+add[place="sublinear"] {
+    position: relative; top: +.25em; 
 }
 
 quote hi[rendition="#u"],
@@ -1849,7 +1857,7 @@ revisionDesc change:before {
 }
 revisionDesc change[who]:before {
     content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd')
-    " von " oxy_editor(type,text,edit,'@who',columns,10) " ";
+    " von " oxy_editor(type,text,edit,'@who',columns,22) " ";
 }
 
 

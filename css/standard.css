@@ -1154,6 +1154,17 @@ dateline {
     -oxy-placeholder-content: "[Datumszeile]";
 }
 
+opener:before, closer:before {
+    content: oxy_combobox(           
+            edit, "#text",
+            editable, false,
+            values, "stand-alone,joint-following,joint-preceding",
+            labels, "als eigener Absatz,übergehend in folgenden Absatz, übergehend in vorangehenden Absatz",
+            default, "stand-alone");
+
+
+}
+
 opener dateline {
     text-align: right;
 }

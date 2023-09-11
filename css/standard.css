@@ -1155,7 +1155,7 @@ dateline {
 }
 
 opener:before, closer:before {
-    content: oxy_combobox(           
+    content: "" oxy_combobox(           
             edit, "@rend",
             editable, false,
             values, "stand-alone,joint-following,joint-preceding",
@@ -1479,7 +1479,7 @@ text gap:after {
 }
 gap[unit="chars"] {
   display: inline-block;
-  content: oxy_concat(attr(quantity), " Zeichen unlesbar");
+  content: oxy_xpath("for $i in 1 to @quantity return '?'");
   minwidth: oxy_concat(attr(quantity), "ex");
 }
 gap[unit="words"] {

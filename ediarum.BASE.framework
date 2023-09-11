@@ -4721,7 +4721,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<String>Tiefstellen</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/icons/subcript20.png</String>
+											<String>${framework}/icons/subscript20.png</String>
 										</field>
 										<field name="smallIconPath">
 											<String>${framework}/icons/subscript16.png</String>
@@ -16908,11 +16908,6 @@ writingSession_writer_1
 													<menuEntry-array>
 														<menuItem>
 															<field name="actionID">
-																<String>hi[#aq_#fr]</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
 																<String>hi[#i]</String>
 															</field>
 														</menuItem>
@@ -17931,11 +17926,6 @@ writingSession_writer_1
 											</toolbar>
 											<toolbarItem>
 												<field name="actionID">
-													<String>note</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
 													<String>figure</String>
 												</field>
 											</toolbarItem>
@@ -17963,17 +17953,7 @@ writingSession_writer_1
 											</toolbarItem>
 											<toolbarItem>
 												<field name="actionID">
-													<String>del</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>subst</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>add</String>
+													<String>hi[subscript]</String>
 												</field>
 											</toolbarItem>
 											<toolbarSeparator/>
@@ -17993,6 +17973,21 @@ writingSession_writer_1
 												</field>
 											</toolbarItem>
 											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>del</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>subst</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>add</String>
+												</field>
+											</toolbarItem>
 											<toolbarItem>
 												<field name="actionID">
 													<String>ex</String>
@@ -18042,6 +18037,21 @@ writingSession_writer_1
 												</field>
 											</toolbar>
 											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>note</String>
+												</field>
+											</toolbarItem>
+											<!--toolbarItem>
+												<field name="actionID">
+													<String>note[foot]</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>note[handwritten]</String>
+												</field>
+											</toolbarItem-->
 											<toolbarItem>
 												<field name="actionID">
 													<String>seg</String>
@@ -18154,6 +18164,16 @@ writingSession_writer_1
 																<String>foreign</String>
 															</field>
 														</toolbarItem>
+														<!--toolbarItem>
+															<field name="actionID">
+																<String>xml_lang</String>
+															</field>
+														</toolbarItem>
+														<toolbarItem>
+															<field name="actionID">
+																<String>xml_lang_span</String>
+															</field>
+														</toolbarItem-->
 													</toolbarEntry-array>
 												</field>
 											</toolbar>
@@ -18221,16 +18241,6 @@ writingSession_writer_1
 																<String>placeName</String>
 															</field>
 														</toolbarItem>
-														<toolbarItem>
-															<field name="actionID">
-																<String>xml_lang</String>
-															</field>
-														</toolbarItem>
-														<toolbarItem>
-															<field name="actionID">
-																<String>xml_lang_span</String>
-															</field>
-														</toolbarItem>
 														<!--toolbarItem>
 															<field name="actionID">
 																<String>bibl</String>
@@ -18250,7 +18260,7 @@ writingSession_writer_1
 													</toolbarEntry-array>
 												</field>
 											</toolbar>
-											<toolbarSeparator/>
+								<toolbarSeparator/>
 										</toolbarEntry-array>
 									</field>
 								</toolbar>

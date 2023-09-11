@@ -256,7 +256,7 @@
 											<String>Ergänzung</String>
 										</field>
 										<field name="description">
-											<String>Ergänzungen von fehlenden Wortteilen durch die Herausgeber</String>
+											<String>Ergänzungen von fehlenden Wortteilen bei Edition</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/ex20.png</String>
@@ -749,10 +749,10 @@
 											<String>del</String>
 										</field>
 										<field name="name">
-											<String>Streichung durch Autor:in</String>
+											<String>Streichung durch Schreiber:in</String>
 										</field>
 										<field name="description">
-											<String>Streichung im Manuskript durch Autor:in</String>
+											<String>Streichung im Manuskript durch Schreiber:in</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/del.gif</String>
@@ -811,10 +811,10 @@
 											<String>subst</String>
 										</field>
 										<field name="name">
-											<String>Korrektur durch Autor:in</String>
+											<String>Korrektur durch Schreiber:in</String>
 										</field>
 										<field name="description">
-											<String>Getilgtes Wort mit gleichzeitiger Korrektur durch Autor:in im Manuskript</String>
+											<String>Getilgtes Wort mit gleichzeitiger Korrektur durch Schreiber:in im Manuskript</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/subst2.gif</String>
@@ -857,7 +857,7 @@
 											<String>unclear</String>
 										</field>
 										<field name="name">
-											<String>Unsichere Lesart</String>
+											<String>Schlecht lesbarer Text</String>
 										</field>
 										<field name="description">
 											<String>Unsichere Lesart von Buchstaben oder Wörtern im Manuskript</String>
@@ -884,7 +884,7 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>unwrapElementLocation</String>
-																<String>ancestor-or-self::hi[@rendition='#u' or @rendition='#uu' or @rendition='#mMM']</String>
+																<String>ancestor-or-self::unclear</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1128,10 +1128,10 @@ or ancestor-or-self::quote</String>
 											<String>add</String>
 										</field>
 										<field name="name">
-											<String>Hinzufügung durch Autor:in</String>
+											<String>Hinzufügung durch Schreiber:in</String>
 										</field>
 										<field name="description">
-											<String>Hinzufügung im Text durch Autor:in</String>
+											<String>Hinzufügung im Text durch Schreiber:in</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/add.gif</String>
@@ -1174,10 +1174,10 @@ or ancestor-or-self::quote</String>
 											<String>note</String>
 										</field>
 										<field name="name">
-											<String>Fußnote durch Autor:in</String>
+											<String>Fußnote durch Schreiber:in</String>
 										</field>
 										<field name="description">
-											<String>Anmerkung (Fußnote) im Manuskript, gesetzt durch Autor:in</String>
+											<String>Anmerkung (Fußnote) im Manuskript, gesetzt durch Schreiber:in</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/note.gif</String>
@@ -1761,10 +1761,10 @@ and not(oxy:current-selected-element())</String>
 											<String>supplied</String>
 										</field>
 										<field name="name">
-											<String>Fehlendes Wort</String>
+											<String>Fehlendes Wort ergänzt bei Edition</String>
 										</field>
 										<field name="description">
-											<String>Fehlendes Wort oder Satzzeichen, durch Herausgeber ergänzt</String>
+											<String>Fehlendes Wort oder Satzzeichen, bei Edition ergänzt</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/supplied.gif</String>
@@ -2408,10 +2408,10 @@ or ancestor-or-self::notesStmt/note</String>
 											<String>del_gap</String>
 										</field>
 										<field name="name">
-											<String>Nicht entzifferbarer Text, durchgestrichen</String>
+											<String>Unlesbarer Text, durchgestrichen</String>
 										</field>
 										<field name="description">
-											<String>Nicht entzifferbarer Text, durchgestrichen</String>
+											<String>Unlesbarer Text, durchgestrichen</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/del_gap.gif</String>
@@ -3225,10 +3225,10 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#Gregorian':'G
 											<String>sic-corr[deleted]</String>
 										</field>
 										<field name="name">
-											<String>Streichung durch Bearbeiter:in</String>
+											<String>Streichung bei Edition</String>
 										</field>
 										<field name="description">
-											<String>Streichung eines überflüssigen Wortes durch Bearbeiter:in</String>
+											<String>Streichung eines überflüssigen Wortes bei der Edition</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/surplus.gif</String>
@@ -6906,10 +6906,10 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<String>sic-corr</String>
 										</field>
 										<field name="name">
-											<String>Korrektur durch Herausgeber:in</String>
+											<String>Korrektur bei Edition</String>
 										</field>
 										<field name="description">
-											<String>Korrektur durch Herausgeber:in</String>
+											<String>Korrektur bei Edition</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/corr-sic.gif</String>
@@ -6955,7 +6955,7 @@ self::*:table][1][self::*:row][namespace-uri()='http://www.tei-c.org/ns/1.0']</S
 											<String>@cert[low]</String>
 										</field>
 										<field name="name">
-											<String>Unsichere Identifizierung</String>
+											<String>Unsicher identifiziert</String>
 										</field>
 										<field name="description">
 											<String>Identifizierung (d.h. Verknüpfung) der Person unsicher</String>
@@ -11294,7 +11294,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 											<String>hi[mPrint]</String>
 										</field>
 										<field name="name">
-											<String>Vorgedruckte Wörter</String>
+											<String>Vorgedruckte Wörter im laufenden Absatz</String>
 										</field>
 										<field name="description">
 											<String></String>
@@ -11834,7 +11834,7 @@ or ancestor-or-self::notesStmt/note</String>
 											<String>Textpassage "erledigt"</String>
 										</field>
 										<field name="description">
-											<String>Textpassage ist durch Autor:in im Manuskript als erledigt markiert</String>
+											<String>Textpassage ist durch Schreiber:in im Manuskript als erledigt markiert</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -12788,10 +12788,10 @@ hand</String>
 											<String>gap</String>
 										</field>
 										<field name="name">
-											<String>Nicht entzifferbarer Text, Schäden und Auslassungen</String>
+											<String>Unlesbarer Text, Schäden und Auslassungen</String>
 										</field>
 										<field name="description">
-											<String>Nicht entzifferbarer Text, Schäden und Auslassungen</String>
+											<String>Unlesbarer Text, Schäden und Auslassungen</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/gap.gif</String>
@@ -13645,7 +13645,7 @@ ediarum_remove_empty_attributes</String>
 											<String>note[foot]</String>
 										</field>
 										<field name="name">
-											<String>Fußnote</String>
+											<String>Fußnote im Druck</String>
 										</field>
 										<field name="description">
 											<String>Fußnote in einem gedruckten Text</String>
@@ -13789,7 +13789,7 @@ ediarum_remove_empty_attributes</String>
 											<String>note[handwritten]</String>
 										</field>
 										<field name="name">
-											<String>Handschriftliche Anmerkung</String>
+											<String>Handschriftliche Anmerkung in Druck</String>
 										</field>
 										<field name="description">
 											<String>Handschriftliche Anmerkung in einem gedruckten Text</String>
@@ -16664,6 +16664,33 @@ writingSession_writer_1
 																<null/>
 															</field>
 														</menu>
+														<menuItem>
+															<field name="actionID">
+																<String>fw[catch]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>fw[catch]top</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>p[renditon=#mMM]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>p[renditon=#et]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>p/@rendition[align]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
 														<menu>
 															<field name="label">
 																<String>Liste</String>
@@ -16773,28 +16800,31 @@ writingSession_writer_1
 																			<String>table.split.right</String>
 																		</field>
 																	</menuItem>
+																	<menuSeparator/>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>table.drawn</String>
+																		</field>
+																	</menuItem>
 																</menuEntry-array>
 															</field>
 															<field name="context">
 																<null/>
 															</field>
 														</menu>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
-																<String>note</String>
+																<String>cb</String>
 															</field>
 														</menuItem>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>lg</String>
 															</field>
 														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>figure</String>
-															</field>
-														</menuItem>
-
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>ediarum_make_letter</String>
@@ -16866,7 +16896,7 @@ writingSession_writer_1
 											</menu>
 											<menu>
 												<field name="label">
-													<String>Autorbearbeitungen</String>
+													<String>Schrift</String>
 												</field>
 												<field name="accessKey">
 													<String></String>
@@ -16876,11 +16906,6 @@ writingSession_writer_1
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
-														<menuItem>
-															<field name="actionID">
-																<String>foreign</String>
-															</field>
-														</menuItem>
 														<menuItem>
 															<field name="actionID">
 																<String>hi[#aq_#fr]</String>
@@ -16913,6 +16938,51 @@ writingSession_writer_1
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
+																<String>hi[#g]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[#aq_#fr]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>head_rendition[c]</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>hi[mPrint]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>@rendition="mPrint"</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Korrekturen und Anmerkungen</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
 																<String>del</String>
 															</field>
 														</menuItem>
@@ -16926,57 +16996,6 @@ writingSession_writer_1
 																<String>add</String>
 															</field>
 														</menuItem>
-													</menuEntry-array>
-												</field>
-												<field name="context">
-													<null/>
-												</field>
-											</menu>
-											<menu>
-												<field name="label">
-													<String>Lesbarkeit</String>
-												</field>
-												<field name="accessKey">
-													<String></String>
-												</field>
-												<field name="iconPath">
-													<String></String>
-												</field>
-												<field name="menuEntriesDescriptorList">
-													<menuEntry-array>
-														<menuItem>
-															<field name="actionID">
-																<String>unclear</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>gap</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>del_gap</String>
-															</field>
-														</menuItem>
-													</menuEntry-array>
-												</field>
-												<field name="context">
-													<null/>
-												</field>
-											</menu>
-											<menu>
-												<field name="label">
-													<String>Herausgeberbearbeitung</String>
-												</field>
-												<field name="accessKey">
-													<String></String>
-												</field>
-												<field name="iconPath">
-													<String></String>
-												</field>
-												<field name="menuEntriesDescriptorList">
-													<menuEntry-array>
 														<menuItem>
 															<field name="actionID">
 																<String>supplied</String>
@@ -17005,14 +17024,45 @@ writingSession_writer_1
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
+																<String>foreign</String>
+															</field>
+														</menuItem>
+														<!--menuItem>
+															<field name="actionID">
+																<String>xml_lang</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>xml_lang_span</String>
+															</field>
+														</menuItem-->
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
 																<String>seg</String>
 															</field>
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>quote</String>
+																<String>note</String>
 															</field>
 														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>note[foot]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>note[handwritten]</String>
+															</field>
+														</menuItem>
+														<!--menuItem>
+															<field name="actionID">
+																<String>quote</String>
+															</field>
+														</menuItem-->
 														<!--menu>
 															<field name="label">
 																<String>Verweise</String>
@@ -17051,47 +17101,38 @@ writingSession_writer_1
 																<null/>
 															</field>
 														</menu-->
-														<menu>
-															<field name="label">
-																<String>Datumsangaben</String>
-															</field>
-															<field name="accessKey">
-																<String></String>
-															</field>
-															<field name="iconPath">
-																<String></String>
-															</field>
-															<field name="menuEntriesDescriptorList">
-																<menuEntry-array>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>date-when</String>
-																		</field>
-																	</menuItem>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>date-fromto</String>
-																		</field>
-																	</menuItem>
-																	<menuItem>
-																		<field name="actionID">
-																			<String>date-notBeforeAfter</String>
-																		</field>
-																	</menuItem>
-																</menuEntry-array>
-															</field>
-															<field name="context">
-																<null/>
-															</field>
-														</menu>
+
+													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Datumsangaben</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
 														<menuItem>
 															<field name="actionID">
-																<String>foreign</String>
+																<String>date-when</String>
 															</field>
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>hi[#aq_#fr]</String>
+																<String>date-fromto</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>date-notBeforeAfter</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -17127,16 +17168,6 @@ writingSession_writer_1
 																<String>placeName</String>
 															</field>
 														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>xml_lang</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>xml_lang_span</String>
-															</field>
-														</menuItem>
 														<!--menuItem>
 															<field name="actionID">
 																<String>bibl</String>
@@ -17163,13 +17194,24 @@ writingSession_writer_1
 																<String>index_bibl</String>
 															</field>
 														</menuItem-->
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>@cert[low]</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>@cert[remove]</String>
+															</field>
+														</menuItem>
 													</menuEntry-array>
 												</field>
 												<field name="context">
 													<null/>
 												</field>
 											</menu>
-											<menu>
+											<!--menu>
 												<field name="label">
 													<String>Transkription gedruckter Texte</String>
 												</field>
@@ -17181,22 +17223,6 @@ writingSession_writer_1
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
-														<menuItem>
-															<field name="actionID">
-																<String>cb</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>note[foot]</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>note[handwritten]</String>
-															</field>
-														</menuItem>
-														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>hi[#i]</String>
@@ -17228,10 +17254,10 @@ writingSession_writer_1
 												<field name="context">
 													<null/>
 												</field>
-											</menu>
+											</menu-->
 											<menu>
 												<field name="label">
-													<String>Sonderfunktionen und Leerräume</String>
+													<String>Leerräume, Platzhalter, Abbildungen</String>
 												</field>
 												<field name="accessKey">
 													<String></String>
@@ -17242,21 +17268,6 @@ writingSession_writer_1
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
 														<menuSeparator/>
-														<menuItem>
-															<field name="actionID">
-																<String>@rendition="mPrint"</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>fw[catch]</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>fw[catch]top</String>
-															</field>
-														</menuItem>
 														<menuItem>
 															<field name="actionID">
 																<String>measuredSpace</String>
@@ -17274,7 +17285,7 @@ writingSession_writer_1
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>hi[mPrint]</String>
+																<String>figure</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -17283,36 +17294,42 @@ writingSession_writer_1
 																<String>metamark</String>
 															</field>
 														</menuItem-->
-														<menuItem>
-															<field name="actionID">
-																<String>p[renditon=#mMM]</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>p[renditon=#et]</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>p/@rendition[align]</String>
-															</field>
-														</menuItem>
 														<!--menuItem>
 															<field name="actionID">
 																<String>metamark[function=used]</String>
 															</field>
 														</menuItem-->
-														<menuSeparator/>
+													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Lesbarkeit</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
 														<menuItem>
 															<field name="actionID">
-																<String>@cert[low]</String>
+																<String>unclear</String>
 															</field>
 														</menuItem>
-														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
-																<String>table.drawn</String>
+																<String>gap</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>del_gap</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>

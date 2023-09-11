@@ -609,15 +609,21 @@ profileDesc creation date[when] {
     -oxy-display-tags: none;
 }
 
-correspDesc date[from],
-profileDesc creation date[from] {
-    content: oxy_editor(type,datePicker,edit,'@from',format,'yyyy-MM-dd') " bis " oxy_editor(type,datePicker,edit,'@to',format,'yyyy-MM-dd');
+date[from] {
+    background-color: #99999f;
+    content: "<GENAU " oxy_editor(type,datePicker,edit,'@from',format,'yyyy-MM-dd') " bis " oxy_editor(type,datePicker,edit,'@to',format,'yyyy-MM-dd') ">  ";
     -oxy-display-tags: none;
 }
 
-correspDesc date[notBefore],
-profileDesc creation date[notBefore] {
-    content: "Nicht vor" oxy_editor(type,datePicker,edit,'@notBefore',format,'yyyy-MM-dd') " und nicht nach " oxy_editor(type,datePicker,edit,'@notAfter',format,'yyyy-MM-dd');
+date[when] {
+    background-color: #99999f;
+    -oxy-placeholder-content: "DATUM";
+    content: "<DATUM " oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd') ">";
+}
+
+date[notBefore] {
+    background-color: #99999f;
+    content: "<Nicht vor " oxy_editor(type,datePicker,edit,'@notBefore',format,'yyyy-MM-dd') " und nicht nach " oxy_editor(type,datePicker,edit,'@notAfter',format,'yyyy-MM-dd') ">  ";
     -oxy-display-tags: none;    
 }
 
@@ -1329,7 +1335,6 @@ text supplied {
     font-family: "TextFont";
     font-style: italic;
     background-color: #e0e0e0;
-    -oxy-display-tags: none;    
 }
 
 quote supplied:before,
@@ -1365,12 +1370,19 @@ text choice {
 
 quote choice sic,
 quote choice orig,
+text choice sic{
+    text-decoration: line-through;
+    text-decoration-color: #FF0000;
+    text-decoration-style: wavy;
+}
+quote choice sic,
+quote choice orig,
 text choice sic,
 text choice orig,
 quote choice abbr,
 text choice abbr {
     background-color: #FFDDDD;
-    -oxy-display-tags: none;
+    /* -oxy-display-tags: none; */
 }
 
 reg:before, expan:before {
@@ -1390,7 +1402,7 @@ quote choice expan,
 text choice expan {
     font-style: italic;
     background-color: #E8FFDD;
-    -oxy-display-tags: none;
+    /* -oxy-display-tags: none; */
     -oxy-placeholder-content: "[Normalisierte Schreibung]";
 }
 
@@ -1418,16 +1430,24 @@ text choice expan {
     -oxy-placeholder-content: "[Aufgelöste Schreibung]";
 }
 
-quote gap,
 quote unclear,
-text gap,
 text unclear {
     background-color: #FFA100;
     color: #444444;
     padding-left: .4ex; padding-right: .4ex;
+    -oxy-placeholder-content: "";
     /* -oxy-display-tags: none; */
 }
 
+quote gap,
+text gap {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    padding-left: .4ex; padding-right: .4ex;
+    -oxy-placeholder-content: "";
+    font-size: 80%;
+    /* -oxy-display-tags: none; */
+}
 quote gap:after,
 quote unclear:after,
 text gap:after,
@@ -1437,17 +1457,38 @@ text unclear:after {
 
 quote gap,
 text gap {
-    content: attr(quantity);
+    /* content: attr(quantity); */
     -oxy-editable: false;
-    width: attr(quantity);
 }
 quote gap:after,
 text gap:after {
-    content: " " attr(unit);
+    /* content: " " attr(unit); */
     font-size: 50%;
     display: inline-block;
-    transform: rotate(90deg);
 }
+gap[unit="chars"] {
+  display: inline-block;
+  content: oxy_concat(attr(quantity), " Zeichen unlesbar");
+  minwidth: oxy_concat(attr(quantity), "ex");
+}
+gap[unit="words"] {
+  display: inline-block;
+  width: oxy_concat(attr(quantity), "0ex");
+}
+gap[unit="em"] {
+  display: inline-block;
+  width: oxy_concat(attr(quantity), "em");
+}
+gap[unit="lines"] {
+  display: block;
+  content: oxy_concat(attr(quantity), " Zeilen unlesbar");
+  height: oxy_concat(attr(quantity), "em");
+}
+gap[unit="pages"] {
+  display: block;
+  content: oxy_concat(attr(quantity), " Seiten unlesbar");
+}
+
 
 text damage {
     -oxy-display-tags: none;
@@ -1800,10 +1841,6 @@ revisionDesc change[who]:before {
     " von " oxy_editor(type,text,edit,'@who',columns,10) " ";
 }
 
-date {
-    -oxy-placeholder-content: "DATUM";
-    content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd')
-}
 
 /* Variantenapparat */
 text app,

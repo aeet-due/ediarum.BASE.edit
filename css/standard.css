@@ -1,10 +1,10 @@
-/* 
+/*
 Copyright 2011-2018 Berlin-Brandenburg Academy of Sciences and Humanities
 
 This file is part of ediarum.BASE.edit.edit.
 
 ediarum.BASE.edit is free software: you can redistribute it and/or modify
-it under the terms of the GNU Lesser General Public License as published 
+it under the terms of the GNU Lesser General Public License as published
 by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
@@ -248,7 +248,7 @@ titleStmt title idno {
 
 titleStmt title idno:after {
     content: ".";
-} 
+}
 
 titleStmt editor,
 titleStmt respStmt {
@@ -374,7 +374,7 @@ sourceDesc:before {
 
 sourceDesc msDesc {
     display: block;
-    
+
 }
 
 sourceDesc msIdentifier:before {
@@ -578,9 +578,9 @@ text {
 }
 
 profileDesc creation:empty {
-    -oxy-placeholder-content: '[Angaben zur Erstellung des Manuskripts über Menü "Allgemein" angeben]'; 
+    -oxy-placeholder-content: '[Angaben zur Erstellung des Manuskripts über Menü "Allgemein" angeben]';
     display: block;
-} 
+}
 
 
 profileDesc creation date {
@@ -624,7 +624,7 @@ date[when] {
 date[notBefore] {
     background-color: #99999f;
     content: "<Nicht vor " oxy_editor(type,datePicker,edit,'@notBefore',format,'yyyy-MM-dd') " und nicht nach " oxy_editor(type,datePicker,edit,'@notAfter',format,'yyyy-MM-dd') ">  ";
-    -oxy-display-tags: none;    
+    -oxy-display-tags: none;
 }
 
 
@@ -700,7 +700,7 @@ notesStmt {
     margin: 1em 0 1em 0;
     padding: 1em 0 1em 0;
     border-top: 1px solid silver;
-    border-bottom: 1px solid silver;   
+    border-bottom: 1px solid silver;
 }
 
 /* correspondence description */
@@ -871,7 +871,7 @@ text head[type="h3"] {
     font-size: 1.2em;
 }
 
-text p, 
+text p,
 text lg[type="verse"] {
     display: block;
     margin: 0 0 1em 0;
@@ -892,7 +892,7 @@ text p[rendition="#et"], text list[rendition="#et"] {
 
 text lb {
     display: inline;
-    -oxy-display-tags: none;            
+    -oxy-display-tags: none;
 }
 
 text lb:before {
@@ -946,7 +946,7 @@ list label + item {
 }
 
 list {
-    margin: 1em 0 0 1em;    
+    margin: 1em 0 0 1em;
 }
 
 /* text space {
@@ -956,7 +956,7 @@ list {
 } */
 
 text space {
-    vertical-align: baseline; position: relative; top: -.25em; 
+    vertical-align: baseline; position: relative; top: -.25em;
     content: " Lücke: " attr(quantity) " " attr(unit) " ";
     font-family: Mono;
     font-size: 85%;
@@ -1017,7 +1017,7 @@ text pb[facs]:after {
 fw {
     font-style: italic;
     color: gray;
-    -oxy-display-tags: none; 
+    -oxy-display-tags: none;
     display: block;
     padding-right: 1ex;
 }
@@ -1109,6 +1109,8 @@ text note {
     -oxy-show-placeholder: always;
 }
 
+
+
 text note[hand='#author']:after,
 text note[hand='#addressee']:after {
     content: none;
@@ -1120,7 +1122,7 @@ text note:has(p) {
     margin-left: 1em;
 }
 
-text note p { 
+text note p {
     display: block;
 }
 
@@ -1153,10 +1155,10 @@ dateline {
 }
 
 opener:before, closer:before {
-    content: "" oxy_combobox(           
+    content: "" oxy_combobox(
             edit, "@rend",
             editable, false,
-            values, "stand-alone,joint-following,joint-preceding",
+            values, "paragraph,joint-following,joint-preceding",
             labels, "als eigener Absatz,übergehend in folgenden Absatz, übergehend in vorangehenden Absatz"
             );
 
@@ -1256,20 +1258,10 @@ add::after {
 
 quote add,
 text add {
-    vertical-align: baseline; 
-    font-size: 85%;
+    vertical-align: baseline; position: relative; top: -.25em; font-size: 85%;
     color: green;
     /* -oxy-display-tags: none; */
     -oxy-placeholder-content: "[Hinzufügung]"
-}
-
-add[place="superlinear"] {
-    position: relative; top: -.25em; 
-}
-
-
-add[place="sublinear"] {
-    position: relative; top: +.25em; 
 }
 
 quote hi[rendition="#u"],
@@ -1304,7 +1296,7 @@ text hi[rendition="#mMM"] {
 
 hi[rendition="#sup"],
 g[rendition="#sup"] {
-    position: relative; 
+    position: relative;
     top: -0.5em;
     font-size: 0.7em;
     /* -oxy-display-tags: none; */
@@ -1312,7 +1304,7 @@ g[rendition="#sup"] {
 
 hi[rendition="#sub"],
 g[rendition="#sub"] {
-    position: relative; 
+    position: relative;
     bottom: -0.5em;
     font-size: 0.7em;
     /* -oxy-display-tags: none; */
@@ -1599,7 +1591,7 @@ text note[type="sachapparat"] {
 text note[type="sachapparat"] {
     display: block;
     margin: 0 0 2em 0;
-    padding: 0;    
+    padding: 0;
 }
 
 text seg[type="textapparat"] note {
@@ -1632,7 +1624,7 @@ text index:before {
 
 abstract anchor[type="index"],
 text anchor[type="index"] {
-    -oxy-display-tags: none;    
+    -oxy-display-tags: none;
     line-height: 0.8em;
 }
 
@@ -1659,7 +1651,7 @@ rs[type='bibl'],
 rs[type='term'] {
     color: #465E7A;
     /* -oxy-display-tags: none; */
-} 
+}
 
 witness bibl {
     color: black;
@@ -1843,7 +1835,7 @@ revisionDesc listChange:before {
     margin: 0.5em 0 0 0;
 }
 
-revisionDesc listChange{  
+revisionDesc listChange{
     -oxy-foldable: true;
 	-oxy-folded: true;
 }
@@ -1857,7 +1849,7 @@ revisionDesc change:before {
 }
 revisionDesc change[who]:before {
     content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd')
-    " von " oxy_editor(type,text,edit,'@who',columns,22) " ";
+    " von " oxy_editor(type,text,edit,'@who',columns,10) " ";
 }
 
 
@@ -1869,12 +1861,12 @@ text app rdg lacunaStart,
 text app rdg witStart{
     -oxy-display-tags: none;
     }
-    
+
 text app lem{
     background-color: #ffeeff;
     color: black;
     -oxy-placeholder-content: "Lemma";
-    
+
 }
 
 text app rdg:before{
@@ -1913,7 +1905,7 @@ text app rdg witStart{
 }
 
 sourceDesc table row cell:nth-child(1) {
-    -oxy-editable: false; 
+    -oxy-editable: false;
 }
 
 cell[xml|id="entwurf"], cell[xml|id=gedruckt], cell[xml|id=korrigiert],
@@ -1931,7 +1923,7 @@ row[xml|id="entwurf"] > cell:nth-child(2),
 cell[xml|id="ueberlieferungsform"],
 row[xml|id="ueberlieferungsform"] > cell:nth-child(2)
 {
-    content: oxy_combobox(           
+    content: oxy_combobox(
             edit, "#text",
             editable, false,
             values, "Original, Kopie, Entwurf",
@@ -1940,7 +1932,7 @@ row[xml|id="ueberlieferungsform"] > cell:nth-child(2)
 
 cell[xml|id="ueberlieferungsart"],
 row[xml|id="ueberlieferungsart"] > cell:nth-child(2) {
-    content: oxy_combobox(           
+    content: oxy_combobox(
             edit, "#text",
             editable, false,
             values, "Druck, Handschrift");
@@ -1949,7 +1941,7 @@ row[xml|id="ueberlieferungsart"] > cell:nth-child(2) {
 row[xml|id="schrifttraeger"] > cell:nth-child(2),
 cell[xml|id="schrifttraeger"]
 {
-    content: oxy_combobox(           
+    content: oxy_combobox(
             edit, "#text",
             editable, true,
             values, "Pergament, Papier, Stein, Holz");
@@ -1972,7 +1964,7 @@ cell[xml|id="abmessungen"]{
 
 row[xml|id="dokTyp"] > cell:nth-child(2),
 cell[xml|id="dokTyp"] {
-    content: oxy_combobox(           
+    content: oxy_combobox(
             edit, "#text",
             editable, true,
             values, "Korrespondenz\, privat, Korrespondenz\, geschäftlich, Korrespondenz\, amtlich, Notiz, Codex, Einzeldokument, Buch, Broschüre, Foto, Postkarte, mit Foto, Fotoplatten");
@@ -2007,7 +1999,7 @@ language {
     display:block;
     margin-left: 1em;
     -oxy-placeholder-content: oxy_concat("Sprache: ", attr("ident"));
-    -oxy-editable: false; 
+    -oxy-editable: false;
 }
 
 *[xml|id="wortbedeutungen"] term:after,
@@ -2053,9 +2045,9 @@ title[type="main"]{
 }
 
 w {
-     -oxy-display-tags: none;   
+     -oxy-display-tags: none;
 }
 
 s {
-    -oxy-display-tags: none;   
+    -oxy-display-tags: none;
 }

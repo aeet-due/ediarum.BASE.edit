@@ -3281,7 +3281,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#gregorian':'G
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt L</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3343,7 +3343,7 @@ calendar="${ask('In der Quelle verwendeter Kalender', combobox, ('#gregorian':'G
 																	'heb':'Hebräisch';
 																	))}">&lt;/foreign></String-->
 <String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Wählen Sie die Sprache aus', combobox, (${xpath_eval(
-	for $lang in //langUsage/language
+	for $lang in (//langUsage/language[position() > 1], //langUsage/language[position() = 1])
 	return "'" || $lang/@ident || "':'" || $lang/text() || "';"
 	)}))}">&lt;/foreign></String>
 															</entry>

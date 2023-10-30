@@ -623,7 +623,7 @@ date[when] {
 
 date[notBefore] {
     background-color: #99999f;
-    content: "<Nicht vor " oxy_editor(type,datePicker,edit,'@notBefore',format,'yyyy-MM-dd') " und nicht nach " oxy_editor(type,datePicker,edit,'@notAfter',format,'yyyy-MM-dd') ">  ";
+    content: "<NICHT VOR " oxy_editor(type,datePicker,edit,'@notBefore',format,'yyyy-MM-dd') " und nicht nach " oxy_editor(type,datePicker,edit,'@notAfter',format,'yyyy-MM-dd') ">  ";
     -oxy-display-tags: none;
 }
 

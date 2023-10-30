@@ -746,6 +746,52 @@
 									</action>
 									<action>
 										<field name="id">
+											<String>note.other</String>
+										</field>
+										<field name="name">
+											<String>andere Anmerkung bei Edition</String>
+										</field>
+										<field name="description">
+											<String>anmerkung bei Edition, z.B. zur äußeren Gestalt</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/icons/seg-note.gif</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/icons/seg-note16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String> oxy:allows-child-element('note')</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" xml:id="n${id}">${caret}&lt;/note></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>true</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
 											<String>del</String>
 										</field>
 										<field name="name">
@@ -17986,6 +18032,11 @@ writingSession_writer_1
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
+																<String>note.other</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
 																<String>note</String>
 															</field>
 														</menuItem>
@@ -19002,26 +19053,59 @@ writingSession_writer_1
 												</field>
 											</toolbar>
 											<toolbarSeparator/>
-											<toolbarItem>
-												<field name="actionID">
-													<String>note</String>
+											<toolbar>
+												<field name="id">
+													<String>Anmerkungen</String>
 												</field>
-											</toolbarItem>
-											<!--toolbarItem>
-												<field name="actionID">
-													<String>note[foot]</String>
+												<field name="type">
+													<Integer>3</Integer>
 												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>note[handwritten]</String>
+												<field name="largeIconPath">
+													<String>${framework}/icons/note.gif</String>
 												</field>
-											</toolbarItem-->
-											<toolbarItem>
-												<field name="actionID">
-													<String>seg</String>
+												<field name="smallIconPath">
+													<String>${framework}/icons/note16.gif</String>
 												</field>
-											</toolbarItem>
+												<field name="toolbarEntriesDescriptorList">
+													<toolbarEntry-array>
+													<toolbarItem>
+														<field name="actionID">
+															<String>note</String>
+														</field>
+													</toolbarItem>
+													<!--toolbarItem>
+														<field name="actionID">
+															<String>note[foot]</String>
+														</field>
+													</toolbarItem>
+													<toolbarItem>
+														<field name="actionID">
+															<String>note[handwritten]</String>
+														</field>
+													</toolbarItem-->											
+													<toolbarItem>
+														<field name="actionID">
+															<String>note[foot]</String>
+														</field>
+													</toolbarItem>
+													<toolbarItem>
+														<field name="actionID">
+															<String>note[handwritten]</String>
+														</field>
+													</toolbarItem>
+													<toolbarItem>
+														<field name="actionID">
+															<String>seg</String>
+														</field>
+													</toolbarItem>
+													<toolbarItem>
+														<field name="actionID">
+															<String>note.other</String>
+														</field>
+													</toolbarItem>	
+												</toolbarEntry-array>
+											</field>
+										</toolbar>										
 											<!--toolbar>
 												<field name="id">
 													<String>Verweise</String>

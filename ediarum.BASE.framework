@@ -679,10 +679,10 @@
 											<String>seg</String>
 										</field>
 										<field name="name">
-											<String>Sachanmerkung einfügen</String>
+											<String>Sachanmerkung bei Edition</String>
 										</field>
 										<field name="description">
-											<String>Sachanmerkung einfügen</String>
+											<String>Sachanmerkung bei Edition</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/seg-note.gif</String>
@@ -14514,7 +14514,7 @@ ediarum_remove_empty_attributes</String>
 											<String>note[handwritten]</String>
 										</field>
 										<field name="name">
-											<String>Handschriftliche Anmerkung in Druck</String>
+											<String>Handschriftliche Anmerkung</String>
 										</field>
 										<field name="description">
 											<String>Handschriftliche Anmerkung</String>
@@ -17559,6 +17559,11 @@ writingSession_writer_1
 																<String>fw[catch]top</String>
 															</field>
 														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>envelope</String>
+															</field>
+														</menuItem>
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
@@ -17713,7 +17718,6 @@ writingSession_writer_1
 																<String>cb</String>
 															</field>
 														</menuItem>
-														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>cb-normal</String>
@@ -17844,8 +17848,6 @@ writingSession_writer_1
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-<<<<<<< HEAD
-=======
 																<String>hi[#smaller]</String>
 															</field>
 														</menuItem>

@@ -1642,14 +1642,23 @@ text index term {
 
 persName,
 orgName,
-placeName,
 bibl,
 rs[type='person'],
 rs[type='org'],
-rs[type='place'],
 rs[type='bibl'],
 rs[type='term'] {
     color: #465E7A;
+    /* -oxy-display-tags: none; */
+}
+
+/* Places */
+
+placeName,
+bibl,
+rs[type='place'],
+rs[type='bibl'],
+rs[type='term'] {
+    color: #7A5E46;
     /* -oxy-display-tags: none; */
 }
 

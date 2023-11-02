@@ -1406,7 +1406,7 @@ hand</String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M1 M2 P</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1538,7 +1538,7 @@ or ancestor-or-self::table[@xml:id="metadaten"]</String>
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M1 M2 O</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -8865,7 +8865,7 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;figure type="placeholder" xmlns="http://www.tei-c.org/ns/1.0">&lt;figDesc>${ask('Beschreibung:', generic, ${selection})}&lt;/figDesc>&lt;/figure></String>
+																<String>&lt;figure type="placeholder" xmlns="http://www.tei-c.org/ns/1.0">&lt;figDesc>${ask('Beschreibung:', generic, '${selection}')}&lt;/figDesc>&lt;/figure></String>
 															</entry>
 															<!--entry>
 																<String>insertLocation</String>
@@ -11446,14 +11446,7 @@ or ancestor-or-self::note[parent::notesStmt] </String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-                                                                                                                                <String>${ask('Bitte wählen Sie ein Zeichen', combobox, (
-                                                                                                                                    '₰': 'Pfennig (₰)';
-                                                                                                                                    '℔': 'Pfund (℔');
-                                                                                                                                    '£': '£';
-                                                                                                                                    '′': 'Mathe ‚Strich‘ (′)'
-                                                                                                                                    ;'″':'Mathe ‚Zweistrich‘ (″)';
-                                                                                                                                    '‴': 'Mathe ‚Dreistrich‘ (‴)';
-                                                                                                                                  ), '₰')}</String>
+																<String>${ask('Bitte wählen Sie ein Zeichen', combobox, ( '₰':'Pfennig (₰)'; 'rtℓ': 'Reichstaler (rtℓ)'; 'gℓ': 'Groschen (gℓ)'; '℔': 'Pfund (℔)'; '£': '£'; '′': 'Mathe ‚Strich‘ (′)'; '″': 'Mathe ‚Zweistrich‘ (″)'; '‴': 'Mathe ‚Dreistrich‘ (‴)';), '₰')}</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>

@@ -1057,8 +1057,22 @@ text figure {
 }
 
 text figure[facs] {
-    content: url(oxy_base-uri()'${ediarum_projects_directory}${ediarum_project_name}/data/${ediarum_image_directory}/' attr(facs));
     width: 250px;
+    content: url(oxy_base-uri()'${ediarum_projects_directory}${ediarum_project_name}/data/${ediarum_image_directory}/' attr(facs));
+}
+
+
+text figure[type=placeholder] {
+    background-color: #00C6FF;
+    text-align: center;
+    display: inline-block;
+}
+
+text figure[type=placeholder] figDesc::before {
+    content: "{{";
+}
+text figure[type=placeholder] figDesc::after {
+    content: "}}";
 }
 
 text figure head {
@@ -1066,32 +1080,24 @@ text figure head {
     -oxy-placeholder-content: "[Überschrift der Abbildung]";
 }
 
-text figure figDesc {
-    display: block;
-    font-style: italic;
-    -oxy-placeholder-content: "[Bildbeschreibung durch den Bearbeiter]"
+text figure[type=placeholder] > p {
+    -oxy-placeholder-content: "[Hier die Bildunterschrift des Autors oder den Text, z.B. von Stempeln, eingeben.]";
+    -oxy-show-placeholder: always;
 }
 
-text figure p {
-    -oxy-placeholder-content: "[Bildunterschrift des Autors]"
+text figure > figDesc {
+    display: block;
+    font-style: italic;
+    -oxy-placeholder-content: "[Bildbeschreibung durch den Bearbeiter]";
+    -oxy-show-placeholder: always;
 }
+
 
 text figure note {
     display: block;
     font-style: italic;
-    -oxy-placeholder-content: "[Sacherläuterung zur Zeichnung bzw. Abbildung]"
-}
-
-text figure[type=placeholder] {
-    background-color: #00C6FF;
-    text-align: center;
-    display: inline-block;
-}
-text figure[type=placeholder] figDesc::before {
-    content: "{{"
-}
-text figure[type=placeholder] figDesc::after {
-    content: "}}"
+    -oxy-placeholder-content: "[Sacherläuterung zur Zeichnung bzw. Abbildung]";
+    -oxy-show-placeholder: always;
 }
 
 

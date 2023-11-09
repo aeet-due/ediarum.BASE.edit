@@ -8865,7 +8865,11 @@ remove_attr</String>
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;figure type="placeholder" xmlns="http://www.tei-c.org/ns/1.0">&lt;figDesc>${ask('Beschreibung:', generic, '${selection}')}&lt;/figDesc>&lt;/figure></String>
+																<String>
+																	&lt;figure type="placeholder" xmlns="http://www.tei-c.org/ns/1.0">
+																	  	&lt;figDesc>${ask('Beschreibung:', generic, '${selection}')}&lt;/figDesc>
+																	  	&lt;p/>
+																	&lt;/figure></String>
 															</entry>
 															<!--entry>
 																<String>insertLocation</String>

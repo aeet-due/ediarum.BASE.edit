@@ -1977,12 +1977,20 @@ cell[xml|id="abmessungen"]{
     -oxy-placeholder-content: "Bitte ausfüllen, Form: Breite × Höhe, z.B. 21cm × 29,7cm";
 }
 
-row[xml|id="dokTyp"] > cell:nth-child(2),
-cell[xml|id="dokTyp"] {
+row[xml|id="dokTyp"] > cell:nth-child(2) item,
+cell[xml|id="dokTyp"] item {
     content: oxy_combobox(
             edit, "#text",
             editable, true,
             values, "Korrespondenz\, privat, Korrespondenz\, geschäftlich, Korrespondenz\, amtlich, Notiz, Codex, Einzeldokument, Buch, Broschüre, Foto, Postkarte, mit Foto, Fotoplatten");
+            visibility: -oxy-collapse-text;
+}
+row[xml|id="textsorte"] > cell:nth-child(2) item,
+cell[xml|id="textsorte"] item {
+    content: oxy_combobox(
+            edit, "#text",
+            editable, true,
+            values, "Brief, Testament, Ehevertrag, Lehnsbrief, (sonstiger) Vertrag, (sonstige) Urkunde, Rechnung, Rechnungsbuch, Tagebuch\, landwirtschaftlich, Tagebuch, Leichenpredigt, Gedicht, Erzählung, Kochbuch, Bericht, Abhandlung");
             visibility: -oxy-collapse-text;
 }
 

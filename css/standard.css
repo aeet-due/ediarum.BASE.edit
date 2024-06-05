@@ -887,7 +887,19 @@ text p[rendition="#mMM"] {
 }
 
 text p[rendition="#et"], text list[rendition="#et"] {
+    padding-left: 1em;
+}
+
+text p[rendition="#et2"], text list[rendition="#et2"] {
+    padding-left: 2em;
+}
+
+text p[rendition="#et3"], text list[rendition="#et3"] {
     padding-left: 3em;
+}
+
+text p[rendition="#parindent"]{
+    text-indent: 1em;
 }
 
 text lb {

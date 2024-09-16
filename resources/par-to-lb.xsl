@@ -16,14 +16,15 @@
         </xsl:copy>
     </xsl:template>
 
-    <xsl:template match="tei:p[@cleanup-par = 'true']/tei:p">
-        <xsl:apply-templates select="node()" mode="#current"/><lb/>
+    <xsl:template match="tei:p[parent::tei:div[@cleanup-par = 'true']]">
+        <xsl:apply-templates select="node()" mode="#current"/>
+        <xsl:if test="position() != last()"><lb/></xsl:if>
     </xsl:template>
 
-    <xsl:template match="tei:body/p[@cleanup-par = 'true']">
-        <xsl:copy>
-                <xsl:apply-templates select="@*[local-name() != 'cleanup-par']" mode="#current"/>
-                <xsl:apply-templates select="node()" mode="#current"/>
-        </xsl:copy>
+    <xsl:template match="tei:body//tei:div[@cleanup-par = 'true']">
+        <xsl:element name="tei:p">
+            <xsl:apply-templates select="@*[local-name() != 'cleanup-par']" mode="#current"/>
+            <xsl:apply-templates select="node()" mode="#current"/>
+        </xsl:element>
     </xsl:template>
 </xsl:stylesheet>

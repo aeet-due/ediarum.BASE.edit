@@ -502,6 +502,11 @@
 																<String>fragment</String>
 																<String>&lt;p xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
+															<entry>
+																<String>caretPosition</String>
+																<String>Preserve</String>
+															</entry>
+
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
@@ -516,13 +521,13 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>surround_par</String>
+											<String>wrap_in_par</String>
 										</field>
 										<field name="name">
-											<String>in Absatz packen</String>
+											<String>in Abschnitt packen</String>
 										</field>
 										<field name="description">
-											<String>Auswahl in einen Absatz packen</String>
+											<String>Auswahl in einen Abschnitt packen</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/icons/paragraph20.png</String>
@@ -540,13 +545,17 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>oxy:allows-child-element("*:p")</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;p xmlns="http://www.tei-c.org/ns/1.0" cleanup-par="true">&lt;/hi></String>
+																<String>&lt;div xmlns="http://www.tei-c.org/ns/1.0" cleanup-par="true"/></String>
+															</entry>
+															<entry>
+																<String>caretPosition</String>
+																<String>Preserve</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -562,7 +571,69 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>par-to-lb</String>
+											<String>cleanup_div</String>
+										</field>
+										<field name="name">
+											<String>Abschnitt zu Absatz</String>
+										</field>
+										<field name="description">
+											<String>Neuer Absatz; löscht innere Absätze</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>caretPosition</String>
+																<String>Preserve</String>
+															</entry>
+															<entry>
+																<String>script</String>
+																<String>&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    version="2.0">
+    &lt;xsl:import href="${framework}/resources/par-to-lb.xsl"/>
+&lt;/xsl:stylesheet></String>
+															</entry>
+															<entry>
+																<String>sourceLocation</String>
+																<String>/tei:TEI</String>
+															</entry>
+															<entry>
+																<String>targetLocation</String>
+																<String>/tei:TEI</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.XSLTOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>par_to_lb</String>
 										</field>
 										<field name="name">
 											<String>innere Absätze in Zeilenumbrüche</String>
@@ -580,22 +651,25 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M1 M3 P</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
-											
 												<actionMode>
-													<!--field name="xpathCondition">
-														<String></String>
-													</field-->
+													<field name="xpathCondition">
+														<String>oxy:allows-child-element('p')</String>
+													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>actionIDs</String>
-																<String>wrap-in-par</String>
+																<String>wrap_in_par
+cleanup_div</String>
 															</entry>
 														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteMultipleActionsOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -17683,7 +17757,7 @@ writingSession_writer_1
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>par-to-lb</String>
+																<String>par_to_lb</String>
 															</field>
 														</menuItem>
 														<menuItem>

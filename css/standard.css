@@ -225,7 +225,7 @@ teiHeader {
     border-bottom: 1px #000000 solid;
     font-family: "TextFont";
     font-style: italic;
-
+    max-width: 100ex;
 }
 
 titleStmt {
@@ -575,6 +575,7 @@ listWit[n='textWitnesses'] listWit witness{
 
 text {
     border-top: 1px solid silver;
+    max-width: 90ex;
 }
 
 profileDesc creation:empty {

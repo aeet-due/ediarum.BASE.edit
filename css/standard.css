@@ -17,9 +17,10 @@ You should have received a copy of the GNU Lesser General Public License
 along with ediarum.BASE.edit. If not, see <http://www.gnu.org/licenses/>.
 */
 
+@import "corema-entities.css";
+
 @namespace xml "http://www.w3.org/XML/1998/namespace";
 @namespace telota "http://www.telota.de";
-
 
 
 @font-face{
@@ -225,7 +226,7 @@ teiHeader {
     border-bottom: 1px #000000 solid;
     font-family: "TextFont";
     font-style: italic;
-    max-width: 100ex;
+
 }
 
 titleStmt {
@@ -575,7 +576,6 @@ listWit[n='textWitnesses'] listWit witness{
 
 text {
     border-top: 1px solid silver;
-    max-width: 90ex;
 }
 
 profileDesc creation:empty {
@@ -604,8 +604,16 @@ profileDesc creation date:before {
     font-style: normal;
 }
 
+correspDesc date[when-custom],
+profileDesc creation date[when-custom] {
+    background-color: orange;
+    content: oxy_textfield(edit,'@when-custom');
+    -oxy-display-tags: none;
+}
+
 correspDesc date[when],
 profileDesc creation date[when] {
+    background-color: yellow;
     content: oxy_editor(type,datePicker,edit,'@when',format,'yyyy-MM-dd');
     -oxy-display-tags: none;
 }
@@ -1173,16 +1181,25 @@ dateline {
     -oxy-placeholder-content: "[Datumszeile]";
 }
 
-opener:before, closer:before {
+TEI[telota|doctype~="letter"]   opener:before,
+TEI[telota|doctype~="document"] opener:before,
+TEI[telota|doctype~="letter"]   closer:before,
+TEI[telota|doctype~="document"] closer:before {
     content: "" oxy_combobox(
             edit, "@rend",
             editable, false,
             values, "paragraph,joint-following,joint-preceding",
             labels, "als eigener Absatz,übergehend in folgenden Absatz, übergehend in vorangehenden Absatz"
             );
-
-
 }
+
+TEI[telota|doctype~="letter"]   opener,
+TEI[telota|doctype~="document"] opener,
+TEI[telota|doctype~="letter"]   closer,
+TEI[telota|doctype~="document"] closer {
+    background-color: lightgray;
+}
+
 
 opener dateline {
     text-align: right;
@@ -1329,8 +1346,10 @@ g[rendition="#sub"] {
     /* -oxy-display-tags: none; */
 }
 
+teiHeader hi[rendition="#i"],
 quote hi[rendition="#i"],
 text hi[rendition="#i"] {
+  /* TODO: italic in italic (header, right) */
     font-style: italic;
     -oxy-display-tags: none;
 }
@@ -1343,12 +1362,14 @@ text hi[rendition="#f"] {
     -oxy-display-tags: none;
 }
 
+teiHeader hi[rendition="#b"],
 quote hi[rendition="#b"],
 text hi[rendition="#b"] {
     font-weight: bold;
     -oxy-display-tags: none;
 }
 
+teiHeader hi[rendition="#g"],
 quote hi[rendition="#g"],
 text hi[rendition="#g"] {
     letter-spacing:0.125em;
@@ -2003,7 +2024,7 @@ cell[xml|id="textsorte"] item {
     content: oxy_combobox(
             edit, "#text",
             editable, true,
-            values, "Brief, Testament, Ehevertrag, Lehnsbrief, (sonstiger) Vertrag, (sonstige) Urkunde, Rechnung, Rechnungsbuch, Tagebuch\, landwirtschaftlich, Tagebuch, Leichenpredigt, Gedicht, Erzählung, Kochbuch, Bericht, Abhandlung");
+            values, "Auszug aus Dokument, Brief, Testament, Ehevertrag, Lehnsbrief, (sonstiger) Vertrag, (sonstige) Urkunde, Protokoll, Rechnung, Rechnungsbuch, Tagebuch\, landwirtschaftlich, Tagebuch, Leichenpredigt, Gedicht, Erzählung, Kochbuch, Bericht, Abhandlung");
             visibility: -oxy-collapse-text;
 }
 
@@ -2081,9 +2102,128 @@ title[type="main"]{
 }
 
 w {
-     -oxy-display-tags: none;
+    -oxy-display-tags: none;
 }
 
 s {
     -oxy-display-tags: none;
 }
+
+/* start CoReMa display */
+
+ab abbrev {
+    -oxy-display-tags: none;
+}
+am {
+    -oxy-display-tags: none;
+    background-color: pink;
+}
+
+ab hi {
+    font-weight: bold;
+    -oxy-display-tags: none;
+}
+
+abbr hi {
+    font-weight: bold;
+    color: darkorchid;
+    -oxy-display-tags: none;
+}
+
+ingredient, instruction, dish, tool {
+    link: oxy_url(oxy_concat("https://www.wikidata.org/wiki/",oxy_xpath("@commodity")));
+}
+
+ingredient[en]::after, instruction[en]::after, dish[en]::after, tool[en]::after {
+    font-size: 85%;
+    link: oxy_url(oxy_concat("https://www.wikidata.org/wiki/",oxy_xpath("@commodity")));
+    content: oxy_concat(" [= ", oxy_xpath("@en"), "] ");
+}
+
+
+ingredient {
+    background-color: lightcoral;
+}
+instruction {
+    background-color: lightgreen;
+}
+dish {
+    background-color: lightcyan;
+}
+tool {
+    background-color: lightblue;
+}
+
+TEI[telota|doctype~="recipe"]        note,
+TEI[telota|doctype~="recipe_corpus"] note{
+    font-size: 85%;
+}
+
+
+TEI[telota|doctype~="recipe"]        note,
+TEI[telota|doctype~="recipe_corpus"] note,
+TEI[telota|doctype~="recipe"]        opener,
+TEI[telota|doctype~="recipe_corpus"] opener,
+TEI[telota|doctype~="recipe"]        closer,
+TEI[telota|doctype~="recipe_corpus"] closer {
+    display: block;
+}
+
+TEI[telota|doctype~="recipe"]        opener,
+TEI[telota|doctype~="recipe_corpus"] opener {
+    color: white;
+    background-color: darkmagenta;
+}
+TEI[telota|doctype~="recipe"]        closer,
+TEI[telota|doctype~="recipe_corpus"] closer {
+    color: white;
+    background-color: darkorange;
+}
+title {
+    font-size: 111%;
+    font-weight: bold;
+    display: block;
+    color: darkred;
+}
+
+msDesc::before {
+    content: "Manuskript:";
+    font-size: 85%;
+    display: block;
+}
+
+msDesc, msName,
+encodingDesc,
+fileDesc,
+country, institution, settlement {
+    display: block;
+}
+origDate::before {
+    content: "ursprg. Datum: ";
+    font-size: 85%;
+}
+origPlace::before {
+    content: "ursprg. Ort: ";
+    font-size: 85%;
+}
+
+g {
+    -oxy-display-tags: none;
+    color: darkgray;
+}
+g:not(:empty):before(1) {
+    content: "{";
+    color: darkgray;
+}
+g:not(:empty):after(1) {
+    content: "}";
+    color: darkgray;
+}
+
+g:before(2) {
+    color: black;
+}
+g:after(2) {
+    color: black;
+}
+::Название::Вопрос {}::Название::Вопрос {}

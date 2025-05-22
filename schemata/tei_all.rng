@@ -7545,6 +7545,7 @@ relatedItem element must be empty</sch:report>
                   <ref name="model.pPart.transcriptional"/>
                   <ref name="model.global"/>
                   <ref name="lg"/>
+                  <ref name="s"/>
                </choice>
             </zeroOrMore>
             <zeroOrMore>

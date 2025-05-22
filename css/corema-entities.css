@@ -1,0 +1,216 @@
+g[ref="#inodot"]:before(2) {
+  content: "ı";
+}
+g[ref="#jnodot"]:before(2) {
+  content: "ȷ";
+}
+g[ref="#jnodotstrok"]:before(2) {
+  content: "ɟ";
+}
+g[ref="#rrot"]:before(2) {
+  content: "ꝛ";
+}
+g[ref="#z_round"]:before(2) {
+  content: "ƶ";
+}
+g[ref="#dtail_den"]:before(2) {
+  content: "ɖ";
+}
+g[ref="#rum"]:before(2) {
+  content: "ꝝ";
+}
+g[ref="#pbardes_per"]:before(2) {
+  content: "ꝑ";
+}
+g[ref="#pbardes_perir"]:before(2) {
+  content: "ꝑ";
+}
+g[ref="#pbardes_par"]:before(2) {
+  content: "ꝑ";
+}
+g[ref="#pflour"]:before(2) {
+  content: "ꝓ";
+}
+g[ref="#pbardes_pri"]:before(2) {
+  content: "ꝑ";
+}
+g[ref="#pbardes_por"]:before(2) {
+  content: "ꝑ";
+}
+g[ref="#condes"]:before(2) {
+  content: "ꝯ";
+}
+g[ref="#condes_com"]:before(2) {
+  content: "ꝯ";
+}
+g[ref="#condes_co"]:before(2) {
+  content: "ꝯ";
+}
+g[ref="#slong"]:before(2) {
+  content: "ſ";
+}
+g[ref="#lbbar"]:before(2) {
+  content: "℔";
+}
+g[ref="#vdiagstrok"]:before(2) {
+  content: "ꝟ";
+}
+g[ref="#Rtailstrok"]:before(2) {
+  content: "℞";
+}
+g[ref="#bar"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_e"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_n"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_m"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_d"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_en"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_em"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_un"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_st"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_de"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_me"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_i"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_in"]:before(2) {
+  content: "̅";
+}
+g[ref="#bar_b"]:before(2) {
+  content: "̅";
+}
+g[ref="#combcomma_r"]:before(2) {
+  content: "̕";
+}
+g[ref="#combcomma_er"]:before(2) {
+  content: "̕";
+}
+g[ref="#combcomma_ir"]:before(2) {
+  content: "̕";
+}
+g[ref="#combcomma_ri"]:before(2) {
+  content: "̕";
+}
+g[ref="#combcomma_re"]:before(2) {
+  content: "̕";
+}
+g[ref="#combcomma_ut"]:before(2) {
+  content: "̕";
+}
+g[ref="#combcomma_e"]:before(2) {
+  content: "̕";
+}
+g[ref="#en"]:before(2) {
+  content: "ꝭ";
+}
+g[ref="#em"]:before(2) {
+  content: "ꝭ";
+}
+g[ref="#is"]:before(2) {
+  content: "ꝭ";
+}
+g[ref="#es"]:before(2) {
+  content: "ꝭ";
+}
+g[ref="#ecipe"]:before(2) {
+  content: "ꝭ";
+}
+g[ref="#etfin_m"]:before(2) {
+  content: "ꝫ";
+}
+g[ref="#etfin_em"]:before(2) {
+  content: "ꝫ";
+}
+g[ref="#etfin"]:before(2) {
+  content: "ꝫ";
+}
+g[ref="#est"]:before(2) {
+  content: "∻";
+}
+g[ref="#lbar"]:before(2) {
+  content: "ƚ";
+}
+g[ref="#llbar"]:before(2) {
+  content: "ƚƚ";
+}
+g[ref="#dz"]:before(2) {
+  content: "dʒ";
+}
+g[ref="#wz"]:before(2) {
+  content: "wʒ";
+}
+g[ref="#combuml"]:before(2) {
+  content: "̈";
+}
+g[ref="#combring"]:before(2) {
+  content: "̊";
+}
+g[ref="#asup"]:before(2) {
+  content: "ͣ";
+}
+g[ref="#esup"]:before(2) {
+  content: "ͤ";
+}
+g[ref="#isup"]:before(2) {
+  content: "ͥ";
+}
+g[ref="#osup"]:before(2) {
+  content: "ͦ";
+}
+g[ref="#usup"]:before(2) {
+  content: "ͧ";
+}
+g[ref="#vsup"]:before(2) {
+  content: "ͮ";
+}
+g[ref="#acirc"]:before(2) {
+  content: "â";
+}
+g[ref="#ecirc"]:before(2) {
+  content: "ê";
+}
+g[ref="#ocirc"]:before(2) {
+  content: "ô";
+}
+g[ref="#etcamp"]:before(2) {
+  content: "&c";
+}
+g[ref="#dbloblhyph"]:before(2) {
+  content: "⸗";
+}
+g[ref="#tridotright"]:before(2) {
+  content: "჻";
+}
+g[ref="#para"]:before(2) {
+  content: "¶";
+}
+g[ref="#dblsol"]:before(2) {
+  content: "⫽";
+}
+g[ref="#fracsol"]:before(2) {
+  content: "⁄";
+}
+g[ref="#verbar"]:before(2) {
+  content: "|";
+}

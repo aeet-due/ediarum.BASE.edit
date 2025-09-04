@@ -18,7 +18,7 @@
 
     <xsl:template match="tei:p[parent::tei:div[@cleanup-par = 'true']]">
         <xsl:apply-templates select="node()" mode="#current"/>
-        <xsl:if test="position() != last()"><lb/></xsl:if>
+        <xsl:if test="position() != last()"><tei:lb/></xsl:if>
     </xsl:template>
 
     <xsl:template match="tei:body//tei:div[@cleanup-par = 'true']">
